@@ -1,0 +1,130 @@
+[h, macro("get_size_int@this"): ""]
+[h: body = macro.return]
+
+
+[h: skills.status.hp = 0]
+[h: setProperty("skills.status.hp", skills.status.hp)]
+[h: MaxHP = floor((
+        10 +
+        getProperty("inherited_trait.used.hp") * 5 +
+        getProperty("learned_trait.used.hp") * 10 +
+        (level - 1) * (3 + getProperty("inherited_trait.used.hp") * 2) +
+        getProperty("skills.status.hp")
+    ) * (1 + 0.25 * body))]
+[h, if(MaxHP <= 0): MaxHP = 1]
+
+[h: skills.status.duck = 0]
+[h: setProperty("skills.status.duck", skills.status.duck)]
+[h: duck = floor(
+    getProperty("inherited_trait.used.duck") +
+    getProperty("learned_trait.used.duck") +
+    (level - 1) * (getProperty("inherited_trait.used.duck") * 0.2) +
+    getProperty("skills.status.duck") - body)]
+
+[h: skills.status.def = 0]
+[h: setProperty("skills.status.def", skills.status.def)]
+[h: def = floor(
+    getProperty("inherited_trait.used.def") +
+    getProperty("learned_trait.used.def") * 2 +
+    (level - 1) * (getProperty("inherited_trait.used.def") * 0.2) +
+    getProperty("skills.status.def"))]
+
+[h: skills.status.pow = 0]
+[h: setProperty("skills.status.pow", skills.status.pow)]
+[h: pow = floor(
+    getProperty("inherited_trait.used.pow") +
+    getProperty("learned_trait.used.pow") * 2 +
+    (level - 1) * (getProperty("inherited_trait.used.pow") * 0.2) +
+    getProperty("skills.status.pow"))]
+
+[h: skills.status.aim = 0]
+[h: setProperty("skills.status.aim", skills.status.aim)]
+[h: aim = floor(
+    getProperty("inherited_trait.used.aim") +
+    getProperty("learned_trait.used.aim") +
+    (level - 1) * (0.5 + getProperty("inherited_trait.used.aim") * 0.1) +
+    getProperty("skills.status.aim"))]
+[h, if(body < 0): aim = aim - body]
+
+[h: skills.status.will = 0]
+[h: setProperty("skills.status.will", skills.status.will)]
+[h: will = floor(
+    1 +
+    getProperty("inherited_trait.used.will") * 2 +
+    getProperty("learned_trait.used.will") +
+    getProperty("skills.status.will"))]
+
+
+[h: setProperty("status.resist.slash", getProperty("learned_trait.used.resist.slash"))]
+[h: setProperty("status.resist.pierce", getProperty("learned_trait.used.resist.pierce"))]
+[h: setProperty("status.resist.blunt", getProperty("learned_trait.used.resist.blunt"))]
+[h: setProperty("status.resist.fire", getProperty("learned_trait.used.resist.fire"))]
+[h: setProperty("status.resist.cold", getProperty("learned_trait.used.resist.cold"))]
+[h: setProperty("status.resist.lightning", getProperty("learned_trait.used.resist.lightning"))]
+[h: setProperty("status.resist.force_field", getProperty("learned_trait.used.resist.force_field"))]
+[h: setProperty("status.resist.light", getProperty("learned_trait.used.resist.light"))]
+[h: setProperty("status.resist.dark", getProperty("learned_trait.used.resist.dark"))]
+[h: setProperty("status.resist.corrosion", getProperty("learned_trait.used.resist.corrosion"))]
+[h: setProperty("status.resist.soul", getProperty("learned_trait.used.resist.soul"))]
+
+[h: setProperty("status.master.slash", getProperty("learned_trait.used.master.slash"))]
+[h: setProperty("status.master.pierce", getProperty("learned_trait.used.master.pierce"))]
+[h: setProperty("status.master.blunt", getProperty("learned_trait.used.master.blunt"))]
+[h: setProperty("status.master.fire", getProperty("learned_trait.used.master.fire"))]
+[h: setProperty("status.master.cold", getProperty("learned_trait.used.master.cold"))]
+[h: setProperty("status.master.lightning", getProperty("learned_trait.used.master.lightning"))]
+[h: setProperty("status.master.force_field", getProperty("learned_trait.used.master.force_field"))]
+[h: setProperty("status.master.light", getProperty("learned_trait.used.master.light"))]
+[h: setProperty("status.master.dark", getProperty("learned_trait.used.master.dark"))]
+[h: setProperty("status.master.corrosion", getProperty("learned_trait.used.master.corrosion"))]
+[h: setProperty("status.master.soul", getProperty("learned_trait.used.master.soul"))]
+
+
+[h: speed =
+    getProperty("learned_trait.speed") +
+    getProperty("learned_trait.used.skill.swift_move")]
+
+[h: mental_type = getProperty("learned_trait.mental_type")]
+[h: setProperty("status.mental_type", mental_type)]
+
+[h: ap_system = getProperty("learned_trait.ap_system")]
+[h: setProperty("status.ap_system", ap_system)]
+
+
+[h: sky = getProperty("skills.used.sky")]
+[h, if(sky > 0): tian = min(floor(sky / 3 + 1), 5); tian = 0]
+
+[h: earth = getProperty("skills.used.earth")]
+[h, if(earth > 0): di = min(floor(earth / 3 + 1), 5); di = 0]
+
+[h: sea = getProperty("skills.used.sea")]
+[h, if(sea > 0): hai = min(floor(sea / 3 + 1), 5); hai = 0]
+
+[h: spring = getProperty("skills.used.spring")]
+[h, if(spring > 0): chun = min(floor(spring / 3 + 1), 5); chun = 0]
+
+[h: summer = getProperty("skills.used.summer")]
+[h, if(summer > 0): xia = min(floor(summer / 3 + 1), 5); xia = 0]
+
+[h: autumn = getProperty("skills.used.autumn")]
+[h, if(autumn > 0): qiu = min(floor(autumn / 3 + 1), 5); qiu = 0]
+
+[h: winter = getProperty("skills.used.winter")]
+[h, if(winter > 0): dong = min(floor(winter / 3 + 1), 5); dong = 0]
+
+[h: sun = getProperty("skills.used.sun")]
+[h, if(sun > 0): ri = min(floor(sun / 3 + 1), 5); ri = 0]
+
+[h: moon = getProperty("skills.used.moon")]
+[h, if(moon > 0): yue = min(floor(moon / 3 + 1), 5); yue = 0]
+
+[h: star = getProperty("skills.used.star")]
+[h, if(star > 0): xing = min(floor(star / 3 + 1), 5); xing = 0]
+
+
+[h, switch(ap_system):
+    case "active": MaxAP = 3;
+    case "raging": MaxAP = 3 + floor(level / 2);
+    case "premeditated": MaxAP = 5 + level;
+    default: MaxAP = 0]
+[h: MaxAP = MaxAP + dong - fate * 3]

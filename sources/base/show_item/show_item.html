@@ -1,0 +1,21 @@
+[h: id = getStrProp(macro.args, "id")]
+[h: tab = getStrProp(macro.args, "tab")]
+
+[h: items = getProperty("items")]
+[h: item = json.get(items, id)]
+
+[h: type = json.get(item, "type")]
+[h: type = replace(type, "\\.", "_")]
+
+[dialog("ShowItem", "width=500; height=700"):
+{
+    <html>
+        <head>
+              <link rel="stylesheet" type="text/css" href="show_item.css@[r: getMacroLocation()]">
+              <title>[r: decode(json.get(item, "name"))]</title>
+        </head>
+        <body>
+            [r, if(type != ""): evalMacro('[macro("show_item_" + type + "@this"): macro.args]')]
+        </body>
+    </html>
+}]

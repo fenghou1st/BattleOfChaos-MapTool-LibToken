@@ -1,0 +1,21 @@
+[h: setProperty("tmp.item.create.type", "equipment")]
+
+[h: equipment.type = getStrProp(macro.args, "equipment.type")]
+[h, if(equipment.type == ""): equipment.type = getProperty("tmp.item.create.equipment.type")]
+[h: setProperty("tmp.item.create.equipment.type", equipment.type)]
+
+[h: equipment_types = '["weapon", "armor", "accessory", "ammo"]']
+
+<table class="tabs" style="width:100%; margin-bottom:10px">
+    <tr>
+        [r, foreach(equipment_type, equipment_types, ""), code:
+        {
+            <td class="[r, if (equipment.type == equipment_type): 'current-tab']">
+                [h, macro("trans_item_equipment_type@this"): equipment_type]
+                [r: macroLink(macro.return, "create_item@this", "none", "type=equipment;equipment.type=" + equipment_type)]
+            </td>
+        }]
+    </tr>
+</table>
+
+[r, if(equipment.type != ""): evalMacro('[macro("create_item_equipment_" + equipment.type + "@this"): macro.args]')]

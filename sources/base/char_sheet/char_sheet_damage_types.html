@@ -1,0 +1,45 @@
+[h: damage_types = "slash, pierce, blunt, fire, cold, lightning, force_field, light, dark, corrosion, soul"]
+
+[h: row_style = "odd"]
+<table class="striped">
+    [r, foreach(damage_type, damage_types, ""), code:
+    {
+        <tr class="{row_style}">
+            <td class="label">
+                [h, macro("trans_damage_type@this"): damage_type]
+                [r: macro.return]
+            </td>
+            <td>
+                [r, if(getProperty("inherited_trait.reserved") > 0):
+                    strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                    macroLinkText("char_sheet@this", "none", "use_inherited_trait=resist." + damage_type))]
+                [r, if(getProperty("learned_trait.reserved") > 0):
+                    strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                    macroLinkText("char_sheet@this", "none", "use_learned_trait=resist." + damage_type))]
+            </td>
+            <td>
+                [h, macro("trans_resist@this"): getProperty("status.resist." + damage_type)]
+                [r: macro.return]
+            </td>
+        </tr>
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+    }]
+</table>
+
+
+[h: row_style = "odd"]
+<table class="striped" style="color:#999999; margin-top:10px">
+    <tr style="color: #555555; background-color: #D0C0E0;">
+        <th>精通</th>
+    </tr>
+    [r, foreach(damage_type, damage_types, ""), code:
+    {
+        <tr class="{row_style}">
+            <td class="label" [r, if (getProperty("status.master." + damage_type) > 0): 'style="color:#555555; font-weight:bold"']>
+                [h, macro("trans_damage_type@this"): damage_type]
+                [r: macro.return]
+            </td>
+        </tr>
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+    }]
+</table>

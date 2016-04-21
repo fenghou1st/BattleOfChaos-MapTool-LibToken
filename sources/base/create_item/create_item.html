@@ -1,0 +1,53 @@
+[h, if(macro.args == ""): evalMacro('[macro("create_item_init@this"): ""]')]
+
+[h: type = getStrProp(macro.args, "type")]
+[h, if(type == ""): type = getProperty("tmp.item.create.type")]
+[h: setProperty("tmp.item.create.type", type)]
+
+
+[h: data = getStrProp(macro.args, "data")]
+
+[h: damage_type = getStrProp(macro.args, "set_weapon_damage_type")]
+[h, if(damage_type != ""): evalMacro('[macro("create_item_set_weapon_damage_type@this"): "type=" + damage_type + ";action=" + data]')]
+
+[h: property = getStrProp(macro.args, "set_weapon_properties_special")]
+[h, if(property != ""): evalMacro('[macro("create_item_set_weapon_properties_special@this"): "property=" + property + ";action=" + data]')]
+
+[h: property = getStrProp(macro.args, "set_weapon_properties_refined")]
+[h, if(property != ""): evalMacro('[macro("create_item_set_weapon_properties_refined@this"): "property=" + property + ";action=" + data]')]
+
+[h: property = getStrProp(macro.args, "set_weapon_properties_crude")]
+[h, if(property != ""): evalMacro('[macro("create_item_set_weapon_properties_crude@this"): "property=" + property + ";action=" + data]')]
+
+[h: damage_type = getStrProp(macro.args, "set_weapon_resistance")]
+[h, if(damage_type != ""): evalMacro('[macro("create_item_set_weapon_resistance@this"): "type=" + damage_type + ";action=" + data]')]
+
+
+[h, macro("create_item_update@this"): ""]
+
+
+[dialog("CreateItem", "width=500; height=700; input=1"):
+{
+    <html>
+        <head>
+              <link rel="stylesheet" type="text/css" href="create_item.css@[r: getMacroLocation()]">
+              <title>创建物品</title>
+        </head>
+        <body>
+            <table class="tabs" style="width:100%; margin-bottom:10px">
+                <tr>
+                    [h: item_types = '["equipment", "consumable", "currency", "normal"]']
+                    [r, foreach(item_type, item_types, ""), code:
+                    {
+                        <td class="[r, if (type == item_type): 'current-tab']">
+                            [h, macro("trans_item_type@this"): item_type]
+                            [r: macroLink(macro.return, "create_item@this", "none", "type=" + item_type)]
+                        </td>
+                    }]
+                </tr>
+            </table>
+
+            [r, if(type != ""): evalMacro('[macro("create_item_" + type + "@this"): macro.args]')]
+        </body>
+    </html>
+}]

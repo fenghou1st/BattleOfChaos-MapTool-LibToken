@@ -1,0 +1,31 @@
+[h: property = getStrProp(macro.args, "property")]
+[h: action = getStrProp(macro.args, "action")]
+
+[h: enabled = getProperty("tmp.item.create.equipment.weapon.properties.crude." + property)]
+[h, if(action == "+"), code:
+{
+    [if(enabled > 0): abort(0)]
+};
+{
+    [if(enabled == 0): abort(0)]
+}]
+
+[h: used = getProperty("tmp.item.create.equipment.weapon.properties.crude.used")]
+[h: reserved = getProperty("tmp.item.create.equipment.weapon.properties.crude.reserved")]
+[h, if(action == "+"), code:
+{
+    [enabled = 1]
+    [used = used + 1]
+    [reserved = reserved - 1]
+    [if(reserved < 0): abort(0)]
+};
+{
+    [enabled = 0]
+    [used = used - 1]
+    [reserved = reserved + 1]
+    [if(used < 0): abort(0)]
+}]
+
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude." + property, enabled)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.used", used)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.reserved", reserved)]

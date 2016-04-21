@@ -1,0 +1,79 @@
+[h: setProperty("tmp.item.create.equipment.weapon.tab", "basic")]
+
+<form name="item.equipment.weapon.input" action="[r:macroLinkText('create_item_equipment_weapon_submit@this')]">
+    <table class="striped">
+        <tr class="odd">
+            <th><label for="name">名称</label></th>
+            <td>
+                [h: name = decode(getProperty("tmp.item.create.name"))]
+                <input type="text" name="name" value="[r: name]" size="30"></input>
+            </td>
+        </tr>
+        <tr class="even">
+            <th><label for="desc">描述</label></th>
+            <td>
+                <textarea name="desc" rows="5" cols="30">[r: desc = decode(getProperty("tmp.item.create.desc"))]</textarea>
+            </td>
+        </tr>
+        <tr class="odd">
+            <th><label for="weight">重量(kg)</label></th>
+            <td>
+                [h: weight = decode(getProperty("tmp.item.create.weight"))]
+                <input type="text" name="weight" value="[r: weight]" size="9"></input>
+            </td>
+        </tr>
+        <tr class="even">
+            <th><label for="value">价值(G)</label></th>
+            <td>
+                [h: value = decode(getProperty("tmp.item.create.value"))]
+                <input type="text" name="value" value="[r: value]" size="9"></input>
+            </td>
+        </tr>
+
+        <tr class="odd">
+            <th><label for="damage">伤害骰</label></th>
+            <td>
+                [r: getProperty("tmp.item.create.equipment.weapon.damage")]
+            </td>
+        </tr>
+        <tr class="even">
+            <th><label for="range">攻击范围</label></th>
+            <td>
+                [h: range = getProperty("tmp.item.create.equipment.weapon.range")]
+                [r, if(range == -1): "&#x89D2;&#x8272;&#x5C04;&#x7A0B;"; range]
+            </td>
+        </tr>
+        <tr class="odd">
+            <th><label for="is_two_handed">双手武器</label></th>
+            <td>
+                [h: is_two_handed = getProperty("tmp.item.create.equipment.weapon.is_two_handed")]
+                [h, macro("trans_bool@this"): is_two_handed]
+                [r: macro.return]
+            </td>
+        </tr>
+        <tr class="even">
+            <th><label for="need_ammo">需要弹药</label></th>
+            <td>
+                [h: need_ammo = getProperty("tmp.item.create.equipment.weapon.need_ammo")]
+                [h, macro("trans_bool@this"): need_ammo]
+                [r: macro.return]
+            </td>
+        </tr>
+        [r, if(need_ammo), code:
+        {
+            <tr class="odd">
+                <th><label for="ammo_type">弹药类型</label></th>
+                <td>
+                    [h: ammo_type = decode(getProperty("tmp.item.create.equipment.weapon.ammo_type"))]
+                    <input type="text" name="ammo_type" value="[r: ammo_type]" size="30"></input>
+                </td>
+            </tr>
+        }; {}]
+    </table>
+
+    <div style="margin:10px 0 0 0; padding:5px; text-align:center; color:#333333; background-color:#D0C0E0;">
+        <input type="submit" name="save" value="&#x3000;&#x3000;&#x3000;&#x4FDD;&#x5B58;&#x6587;&#x5B57;&#x3000;&#x3000;&#x3000;"></input>
+        &#x3000;&#x3000;&#x3000;&#x3000;
+        <input type="submit" name="create" value="&#x3000;&#x3000;&#x3000;&#x3000;&#x521B;&#x5EFA;&#x3000;&#x3000;&#x3000;&#x3000;"></input>
+    </div>
+</form>

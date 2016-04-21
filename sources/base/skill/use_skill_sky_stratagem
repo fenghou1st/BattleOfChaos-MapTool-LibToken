@@ -1,0 +1,76 @@
+[h: id = macro.args]
+[h: used = getProperty("skills.used.sky.stratagem." + id)]
+
+[h, switch(id), code:
+    case 0:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 1:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sky.stratagem.0") <= 0): abort(0)]
+    };
+    case 2:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 3:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sky.stratagem.2") <= 0): abort(0)]
+    };
+    case 4:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 5:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 6:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 7:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 8:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 9:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 10:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 11:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 12:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 13:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 14:
+    {
+        [if(used > 0): abort(0)]
+    };
+    default:
+    {
+        [assert(0, "use_skill_sky_stratagem: unknown skill: " + macro.args)]
+    }
+]
+
+[h: setProperty("skills.used.sky.stratagem." + id, used + 1)]
+[h: setProperty("skills.used.sky.stratagem", getProperty("skills.used.sky.stratagem") + 1)]
+[h: setProperty("skills.used.sky", getProperty("skills.used.sky") + 1)]
+[h: macro.return = 1]

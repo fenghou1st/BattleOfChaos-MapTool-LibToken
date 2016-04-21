@@ -1,0 +1,13 @@
+[switch(macro.args):
+    case "slash": macro.return = "&#x6325;&#x780D;";
+    case "pierce": macro.return = "&#x7A7F;&#x523A;";
+    case "blunt": macro.return = "&#x949D;&#x51FB;";
+    case "fire": macro.return = "&#x706B;&#x7130;";
+    case "cold": macro.return = "&#x5BD2;&#x971C;";
+    case "lightning": macro.return = "&#x95EA;&#x7535;";
+    case "force_field": macro.return = "&#x529B;&#x573A;";
+    case "light": macro.return = "&#x5149;&#x8000;";
+    case "dark": macro.return = "&#x9ED1;&#x6697;";
+    case "corrosion": macro.return = "&#x8150;&#x8680;";
+    case "soul": macro.return = "&#x5FC3;&#x7075;";
+    default: macro.return = "&#xFF1F;"]

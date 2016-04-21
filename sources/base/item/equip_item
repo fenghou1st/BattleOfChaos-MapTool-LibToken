@@ -1,0 +1,15 @@
+[h: id = getStrProp(macro.args, "id")]
+[h: action = getStrProp(macro.args, "action")]
+
+[h: items = getProperty("items")]
+[h: item = json.get(items, id)]
+[h: equipment = json.get(item, "equipment")]
+
+[h, if(action == "equip"):
+    equipment = json.set(equipment, "is_equiped", 1);
+    equipment = json.set(equipment, "is_equiped", 0)]
+[h: item = json.set(item, "equipment", equipment)]
+[h: items = json.set(items, id, item)]
+[h: setProperty("items", items)]
+
+[macro("char_sheet@this"): ""]

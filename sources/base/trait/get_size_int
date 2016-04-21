@@ -1,0 +1,11 @@
+[switch(getSize()):
+    case "Fine": macro.return = -4;
+    case "Diminutive": macro.return = -3;
+    case "Tiny": macro.return = -2;
+    case "Small": macro.return = -1;
+    case "Medium": macro.return = 0;
+    case "Large": macro.return = 1;
+    case "Huge": macro.return = 2;
+    case "Gargantuan": macro.return = 3;
+    case "Colossal": macro.return = 4;
+    default: macro.return = 0]

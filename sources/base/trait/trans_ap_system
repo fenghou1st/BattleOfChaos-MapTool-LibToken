@@ -1,0 +1,5 @@
+[switch(macro.args):
+    case "active": macro.return = "<span style='color:#808000'>&#x673A;&#x52A8;</span>";
+    case "raging": macro.return = "<span style='color:#800000'>&#x6012;&#x706B;</span>";
+    case "premeditated": macro.return = "<span style='color:#000080'>&#x9884;&#x8C0B;</span>";
+    default: macro.return = ""]

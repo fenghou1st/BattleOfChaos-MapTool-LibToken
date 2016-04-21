@@ -1,0 +1,2 @@
+[setProperty("inherited_trait.reserved", getProperty("inherited_trait.reserved") + 1)]
+[setProperty("learned_trait.reserved", getProperty("learned_trait.reserved") - 1)]

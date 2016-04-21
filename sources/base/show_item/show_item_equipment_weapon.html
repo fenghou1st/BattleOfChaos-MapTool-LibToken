@@ -1,0 +1,172 @@
+[h: id = getStrProp(macro.args, "id")]
+[h: tab = getStrProp(macro.args, "tab")]
+
+[h: items = getProperty("items")]
+[h: item = json.get(items, id)]
+
+<table class="striped">
+    [h: row_style = "odd"]
+    <tr class="{row_style}">
+        <th style="width:30%"><label>名称</label></th>
+        <td>
+            [r: decode(json.get(item, "name"))]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>描述</label></th>
+        <td>
+            [r: decode(json.get(item, "desc"))]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>重量(kg)</label></th>
+        <td>
+            [r: decode(json.get(item, "weight"))]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>价值(G)</label></th>
+        <td>
+            [r: decode(json.get(item, "value"))]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    [h: equipment = json.get(item, "equipment")]
+    <tr class="{row_style}">
+        <th><label>已装备</label></th>
+        <td>
+            [h: is_equiped = json.get(equipment, "is_equiped")]
+            [h, macro("trans_bool@this"): is_equiped]
+            [r: macro.return]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    [h: weapon = json.get(item, "equipment.weapon")]
+    <tr class="{row_style}">
+        <th><label>伤害骰</label></th>
+        <td>
+            [r: json.get(weapon, "damage")]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>攻击范围</label></th>
+        <td>
+            [h: weapon_range = json.get(weapon, "range")]
+            [r, if(weapon_range == -1): "&#x89D2;&#x8272;&#x5C04;&#x7A0B;"; weapon_range]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>伤害类型</label></th>
+        <td>
+            [h: damage_types = json.get(weapon, "damage_types")]
+            [r, foreach(damage_type, damage_types, " "), code:
+            {
+                [h, macro("trans_damage_type@this"): damage_type]
+                [r: macro.return]
+            }]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>双手武器</label></th>
+        <td>
+            [h: is_two_handed = json.get(weapon, "is_two_handed")]
+            [h, macro("trans_bool@this"): is_two_handed]
+            [r: macro.return]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    [h: need_ammo = json.get(weapon, "need_ammo")]
+    [r, if(need_ammo), code:
+    {
+        <tr class="{row_style}">
+            <th><label>弹药类型</label></th>
+            <td>
+                [r: json.get(weapon, "ammo_type")]
+            </td>
+        </tr>
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+    }; {}]
+
+    [h: properties = json.get(weapon, "properties")]
+    <tr class="{row_style}">
+        <th><label>特殊特性</label></th>
+        <td>
+            [r, foreach(property, properties, " "), code:
+            {
+                [h: property_type = json.get(property, "type")]
+                [r, if(property_type == "special"), code:
+                {
+                    [h: property_id = json.get(property, "id")]
+                    [h: property_level = json.get(property, "level")]
+                    [h, macro("trans_item_equipment_weapon_property_special@this"): property_id]
+                    [r: macro.return][r, if(property_level > 1): "(" + property_level + ")"]
+                }; {}]
+            }]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>精致特性</label></th>
+        <td>
+            [r, foreach(property, properties, " "), code:
+            {
+                [h: property_type = json.get(property, "type")]
+                [r, if(property_type == "refined"), code:
+                {
+                    [h: property_id = json.get(property, "id")]
+                    [h: property_level = json.get(property, "level")]
+                    [h, macro("trans_item_equipment_weapon_property_refined@this"): property_id]
+                    [r: macro.return][r, if(property_level > 1): "(" + property_level + ")"]
+                }; {}]
+            }]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>粗暴特性</label></th>
+        <td>
+            [r, foreach(property, properties, " "), code:
+            {
+                [h: property_type = json.get(property, "type")]
+                [r, if(property_type == "crude"), code:
+                {
+                    [h: property_id = json.get(property, "id")]
+                    [h: property_level = json.get(property, "level")]
+                    [h, macro("trans_item_equipment_weapon_property_crude@this"): property_id]
+                    [r: macro.return][r, if(property_level > 1): "(" + property_level + ")"]
+                }; {}]
+            }]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    [h: resistances = json.get(weapon, "resistances")]
+    <tr class="{row_style}">
+        <th><label>抗性</label></th>
+        <td>
+            [r, foreach(resistance, resistances, " "), code:
+            {
+                [h, macro("trans_damage_type@this"): resistance]
+                [r: macro.return]
+            }]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+</table>

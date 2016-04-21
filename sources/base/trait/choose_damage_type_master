@@ -1,0 +1,18 @@
+[h: damage_types = "slash, pierce, blunt, fire, cold, lightning, force_field, light, dark, corrosion, soul"]
+
+[h: selections = ""]
+[h: available_types = ""]
+[h, foreach(damage_type, damage_types, ""), code:
+{
+    [if(getProperty("learned_trait.used.master." + damage_type) == 0), code:
+    {
+        [macro("trans_damage_type@this"): damage_type]
+        [selections = selections + '<html><div style="width:50px;text-align:center">' + macro.return + '</div></html>,']
+        [available_types = json.append(available_types, damage_type)]
+    }]
+}]
+
+[h, if(json.isEmpty(available_types)): abort(0)]
+[h: abort(input("data|" + selections + "|<html><b>&#x8BF7;&#x9009;&#x62E9;&#x4F24;&#x5BB3;&#x7CBE;&#x901A;&#x7684;&#x7C7B;&#x578B;</b></html>|RADIO|SELECT=0"))]
+
+[h: macro.return = json.get(available_types, data)]

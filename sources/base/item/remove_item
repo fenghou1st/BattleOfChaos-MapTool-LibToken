@@ -1,0 +1,7 @@
+[h: id = macro.args]
+
+[h: items = getProperty("items")]
+[h: items = json.remove(items, id)]
+[h: setProperty("items", items)]
+
+[macro("char_sheet@this"): ""]

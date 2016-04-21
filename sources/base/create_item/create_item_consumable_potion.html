@@ -1,0 +1,51 @@
+[h: setProperty("tmp.item.create.consumable.type", "potion")]
+
+<form name="item.consumable.potion.input" action="[r:macroLinkText('create_item_consumable_potion_submit@this')]">
+    <table class="striped">
+        <tr class="odd">
+            <th><label for="name">名称</label></th>
+            <td>
+                [h: name = decode(getProperty("tmp.item.create.name"))]
+                <input type="text" name="name" value="[r: name]" size="30"></input>
+            </td>
+        </tr>
+        <tr class="even">
+            <th><label for="desc">描述</label></th>
+            <td>
+                <textarea name="desc" rows="5" cols="30">[r: desc = decode(getProperty("tmp.item.create.desc"))]</textarea>
+            </td>
+        </tr>
+        <tr class="odd">
+            <th><label for="weight">重量(kg/单位)</label></th>
+            <td>
+                [h: weight = decode(getProperty("tmp.item.create.weight"))]
+                <input type="text" name="weight" value="[r: weight]" size="9"></input>
+            </td>
+        </tr>
+        <tr class="even">
+            <th><label for="value">价值(G/单位)</label></th>
+            <td>
+                [h: value = decode(getProperty("tmp.item.create.value"))]
+                <input type="text" name="value" value="[r: value]" size="9"></input>
+            </td>
+        </tr>
+        <tr class="odd">
+            <th><label for="potion.hp">HP回复</label></th>
+            <td>
+                [h: potion.hp = decode(getProperty("tmp.item.create.consumable.potion.hp"))]
+                <input type="text" name="potion.hp" value="[r: potion.hp]" size="9"></input>
+            </td>
+        </tr>
+        <tr class="even">
+            <th><label for="consumable.amount">数量</label></th>
+            <td>
+                [h: consumable.amount = decode(getProperty("tmp.item.create.consumable.amount"))]
+                <input type="text" name="consumable.amount" value="[r: consumable.amount]" size="9"></input>
+            </td>
+        </tr>
+    </table>
+
+    <div style="margin:10px 0 0 0; padding:5px; text-align:center; color:#333333; background-color:#D0C0E0;">
+        <input type="submit" name="create" value="&#x3000;&#x3000;&#x3000;&#x3000;&#x521B;&#x5EFA;&#x3000;&#x3000;&#x3000;&#x3000;"></input>
+    </div>
+</form>

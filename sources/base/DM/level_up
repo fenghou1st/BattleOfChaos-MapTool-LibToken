@@ -1,0 +1,20 @@
+[h: ids = getSelected()]
+[foreach(id, ids, "<br>"), code: {
+    [h: selected_level = getProperty("level", id)]
+    [h: selected_level = selected_level + 1]
+    [h: setProperty("level", selected_level, id)]
+
+    [h, if(floor(selected_level / 5) == selected_level / 5), code: {
+        [h: learned_trait.reserved = getProperty("learned_trait.reserved", id)]
+        [h: setProperty("learned_trait.reserved", learned_trait.reserved + 2, id)]
+    }]
+
+    [h: skills.reserved = getProperty("skills.reserved", id)]
+    [h: skills.reserved = skills.reserved + 2]
+    [h, if(floor(selected_level / 10) == selected_level / 10), code: {
+        [h: skills.reserved = skills.reserved + 2]
+    }]
+    [h: setProperty("skills.reserved", skills.reserved, id)]
+
+    {getName(id)}等级提升！当前等级{selected_level}！
+}]

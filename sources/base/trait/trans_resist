@@ -1,0 +1,6 @@
+[switch(macro.args):
+    case -1: macro.return = "<span style='color:#A07070'>&#x5F31;&#x70B9;</span>";
+    case 0: macro.return = "&#x666E;&#x901A;";
+    case 1: macro.return = "<span style='color:#7070A0'>&#x6297;&#x6027;</span>";
+    case 2: macro.return = "<span style='color:#70A070'>&#x514D;&#x75AB;</span>";
+    default: macro.return = "&#x666E;&#x901A;"]

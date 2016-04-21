@@ -1,0 +1,8 @@
+[switch(macro.args):
+    case "basic": macro.return = "&#x57FA;&#x672C;&#x5C5E;&#x6027;";
+    case "damage_types": macro.return = "&#x4F24;&#x5BB3;&#x7C7B;&#x578B;";
+    case "special_properties": macro.return = "&#x7279;&#x6B8A;&#x7279;&#x6027;";
+    case "refined_properties": macro.return = "&#x7CBE;&#x81F4;&#x7279;&#x6027;";
+    case "crude_properties": macro.return = "&#x7C97;&#x66B4;&#x7279;&#x6027;";
+    case "resistances": macro.return = "&#x6297;&#x6027;";
+    default: macro.return = "&#xFF1F;"]

@@ -1,0 +1,21 @@
+[h: setProperty("tmp.item.create.type", "consumable")]
+
+[h: consumable.type = getStrProp(macro.args, "consumable.type")]
+[h, if(consumable.type == ""): consumable.type = getProperty("tmp.item.create.consumable.type")]
+[h: setProperty("tmp.item.create.consumable.type", consumable.type)]
+
+[h: consumable_types = '["potion", "scroll", "food"]']
+
+<table class="tabs" style="width:100%; margin-bottom:10px">
+    <tr>
+        [r, foreach(consumable_type, consumable_types, ""), code:
+        {
+            <td class="[r, if (consumable.type == consumable_type): 'current-tab']">
+                [h, macro("trans_item_consumable_type@this"): consumable_type]
+                [r: macroLink(macro.return, "create_item@this", "none", "type=consumable;consumable.type=" + consumable_type)]
+            </td>
+        }]
+    </tr>
+</table>
+
+[r, if(consumable.type != ""): evalMacro('[macro("create_item_consumable_" + consumable.type + "@this"): macro.args]')]

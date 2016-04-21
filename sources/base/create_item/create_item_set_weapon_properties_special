@@ -1,0 +1,19 @@
+[h: property = getStrProp(macro.args, "property")]
+[h: action = getStrProp(macro.args, "action")]
+
+[h: enabled = getProperty("tmp.item.create.equipment.weapon.properties.special." + property)]
+[h, if(action == "+"), code:
+{
+    [if(enabled > 0): abort(0)]
+};
+{
+    [if(enabled == 0): abort(0)]
+}]
+
+[h, if(action == "+"), code:
+{
+    [setProperty("tmp.item.create.equipment.weapon.properties.special." + property, 1)]
+};
+{
+    [setProperty("tmp.item.create.equipment.weapon.properties.special." + property, 0)]
+}]

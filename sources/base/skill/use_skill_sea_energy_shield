@@ -1,0 +1,97 @@
+[h: id = macro.args]
+[h: used = getProperty("skills.used.sea.energy_shield." + id)]
+
+[h, switch(id), code:
+    case 0:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 1:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_shield.0") <= 0): abort(0)]
+    };
+    case 2:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_shield.0") <= 0): abort(0)]
+    };
+    case 3:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_shield.0") <= 0): abort(0)]
+    };
+    case 4:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_shield.0") <= 0): abort(0)]
+    };
+    case 5:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_shield.4") <= 0): abort(0)]
+    };
+    case 6:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_shield.4") <= 0): abort(0)]
+    };
+    case 7:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_shield.6") <= 0): abort(0)]
+    };
+    case 8:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_shield.6") <= 0): abort(0)]
+    };
+    case 9:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 10:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_shield.9") <= 0): abort(0)]
+    };
+    case 11:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 12:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 13:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 14:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 15:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_shield.14") <= 0): abort(0)]
+    };
+    case 16:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 17:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_shield.16") <= 0): abort(0)]
+    };
+    default:
+    {
+        [assert(0, "use_skill_sea_energy_shield: unknown skill: " + macro.args)]
+    }
+]
+
+[h: setProperty("skills.used.sea.energy_shield." + id, used + 1)]
+[h: setProperty("skills.used.sea.energy_shield", getProperty("skills.used.sea.energy_shield") + 1)]
+[h: setProperty("skills.used.sea", getProperty("skills.used.sea") + 1)]
+[h: macro.return = 1]

@@ -1,0 +1,15 @@
+[h: ap_system = getProperty("learned_trait.ap_system")]
+[h, if(ap_system != ""): abort(0)]
+
+[h: selections = '<html><div style="width:50px;text-align:center">&#x673A;&#x52A8;</div></html>,'
+    + '<html><div style="width:50px;text-align:center">&#x6012;&#x706B;</div></html>,'
+    + '<html><div style="width:50px;text-align:center">&#x9884;&#x8C0B;</div></html>']
+[h: abort(input("data|" + selections + "|<html><b>&#x8BF7;&#x9009;&#x62E9;AP&#x7CFB;&#x7EDF;</b></html>|RADIO|SELECT=0"))]
+
+[switch(data):
+    case 0: data = "active";
+    case 1: data = "raging";
+    case 2: data = "premeditated";
+    default: abort(0)]
+
+[setProperty("learned_trait.ap_system", data)]

@@ -1,0 +1,103 @@
+[h: id = macro.args]
+[h: used = getProperty("skills.used.star.project." + id)]
+
+[h, switch(id), code:
+    case 0:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 1:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.0") <= 0): abort(0)]
+    };
+    case 2:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.1") <= 0): abort(0)]
+    };
+    case 3:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.1") <= 0): abort(0)]
+    };
+    case 4:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.3") <= 0): abort(0)]
+    };
+    case 5:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 6:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.5") <= 0): abort(0)]
+    };
+    case 7:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.6") <= 0): abort(0)]
+    };
+    case 8:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 9:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.8") <= 0): abort(0)]
+    };
+    case 10:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 11:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.4") <= 0 || getProperty("skills.used.star.project.10") <= 0): abort(0)]
+    };
+    case 12:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 13:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.12") <= 0): abort(0)]
+    };
+    case 14:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.13") <= 0): abort(0)]
+    };
+    case 15:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.0") <= 0 || getProperty("skills.used.star.project.14") <= 0): abort(0)]
+    };
+    case 16:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.15") <= 0): abort(0)]
+    };
+    case 17:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 18:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.star.project.17") <= 0): abort(0)]
+    };
+    default:
+    {
+        [assert(0, "use_skill_star_project: unknown skill: " + macro.args)]
+    }
+]
+
+[h: setProperty("skills.used.star.project." + id, used + 1)]
+[h: setProperty("skills.used.star.project", getProperty("skills.used.star.project") + 1)]
+[h: setProperty("skills.used.star", getProperty("skills.used.star") + 1)]
+[h: macro.return = 1]

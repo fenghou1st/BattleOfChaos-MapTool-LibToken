@@ -1,0 +1,27 @@
+[h: group = macro.args]
+
+[h, macro("get_skill_sub_group_skills@this"): group]
+[h: skill_ids = macro.return]
+
+[h: row_style = "odd"]
+<table class="striped" style="color:#999999">
+    [r, foreach(id, skill_ids, ""), code:
+    {
+        <tr class="{row_style}">
+            <td class="label" [r, if (getProperty("skills.used." + group + "." + id) > 0): 'style="color:#555555; font-weight:bold"']>
+                [h, macro("trans_skill@this"): group + "." + id]
+                [r: macro.return]
+            </td>
+            <td>
+                [r, if(getProperty("skills.reserved") > 0):
+                    strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                    macroLinkText("char_sheet@this", "none", "use_skill=" + group + "." + id))]
+            </td>
+            <td style="color:#555555; font-weight:bold">
+                [h: used = getProperty("skills.used." + group + "." + id)]
+                [r, if(used > 1): used]
+            </td>
+        </tr>
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+    }]
+</table>

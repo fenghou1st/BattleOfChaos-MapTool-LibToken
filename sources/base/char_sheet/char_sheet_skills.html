@@ -1,0 +1,8 @@
+[h: page0 = getStrProp(macro.args, "page0")]
+[r, if(page0 == "" || page0 == "main"), code:
+{
+    [macro("char_sheet_skills_main@this"): ""]
+};
+{
+    [macro("char_sheet_skills_sub@this"): macro.args]
+}]

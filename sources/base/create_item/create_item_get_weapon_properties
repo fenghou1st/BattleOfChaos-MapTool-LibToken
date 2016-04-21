@@ -1,0 +1,46 @@
+[h: properties = "[]"]
+
+
+[h, macro("get_item_equipment_weapon_properties@this"): "special"]
+[h: special_properties = macro.return]
+
+[h, foreach(special_property, special_properties, ""), code:
+{
+    [level = getProperty("tmp.item.create.equipment.weapon.properties.special." + special_property)]
+    [if(level > 0), code:
+    {
+        [property = json.set("{}",  "type", "special",  "id", special_property,  "level", level)]
+        [properties = json.append(properties, property)]
+    }]
+}]
+
+
+[h, macro("get_item_equipment_weapon_properties@this"): "refined"]
+[h: refined_properties = macro.return]
+
+[h, foreach(refined_property, refined_properties, ""), code:
+{
+    [level = getProperty("tmp.item.create.equipment.weapon.properties.refined." + refined_property)]
+    [if(level > 0), code:
+    {
+        [property = json.set("{}",  "type", "refined",  "id", refined_property,  "level", level)]
+        [properties = json.append(properties, property)]
+    }]
+}]
+
+
+[h, macro("get_item_equipment_weapon_properties@this"): "crude"]
+[h: crude_properties = macro.return]
+
+[h, foreach(crude_property, crude_properties, ""), code:
+{
+    [level = getProperty("tmp.item.create.equipment.weapon.properties.crude." + crude_property)]
+    [if(level > 0), code:
+    {
+        [property = json.set("{}",  "type", "crude",  "id", crude_property,  "level", level)]
+        [properties = json.append(properties, property)]
+    }]
+}]
+
+
+[h: macro.return = properties]

@@ -1,0 +1,11 @@
+[switch(macro.args):
+    case 0: macro.return = "&#x5931;&#x51C6;";
+    case 1: macro.return = "&#x53CD;&#x566C;";
+    case 2: macro.return = "&#x65E0;&#x906E;";
+    case 3: macro.return = "&#x7834;&#x7EFD;";
+    case 4: macro.return = "&#x7B28;&#x91CD;";
+    case 5: macro.return = "&#x5F31;&#x80FD;";
+    case 6: macro.return = "&#x5384;&#x8FD0;";
+    case 7: macro.return = "&#x77ED;&#x9669;";
+    case 8: macro.return = "&#x6B7B;&#x89D2;";
+    default: macro.return = "&#xFF1F;"]

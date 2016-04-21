@@ -1,0 +1,51 @@
+[h: setProperty("tmp.item.create.equipment.type", "armor")]
+
+<form name="item.equipment.armor.input" action="[r:macroLinkText('create_item_equipment_armor_submit@this')]">
+    <table class="striped">
+        <tr class="odd">
+            <th><label for="name">名称</label></th>
+            <td>
+                [h: name = decode(getProperty("tmp.item.create.name"))]
+                <input type="text" name="name" value="[r: name]" size="30"></input>
+            </td>
+        </tr>
+        <tr class="even">
+            <th><label for="desc">描述</label></th>
+            <td>
+                <textarea name="desc" rows="5" cols="30">[r: desc = decode(getProperty("tmp.item.create.desc"))]</textarea>
+            </td>
+        </tr>
+        <tr class="odd">
+            <th><label for="weight">重量(kg)</label></th>
+            <td>
+                [h: weight = decode(getProperty("tmp.item.create.weight"))]
+                <input type="text" name="weight" value="[r: weight]" size="9"></input>
+            </td>
+        </tr>
+        <tr class="even">
+            <th><label for="value">价值(G)</label></th>
+            <td>
+                [h: value = decode(getProperty("tmp.item.create.value"))]
+                <input type="text" name="value" value="[r: value]" size="9"></input>
+            </td>
+        </tr>
+        <tr class="odd">
+            <th><label for="armor.def">护甲</label></th>
+            <td>
+                [h: armor.def = decode(getProperty("tmp.item.create.equipment.armor.def"))]
+                <input type="text" name="armor.def" value="[r: armor.def]" size="9"></input>
+            </td>
+        </tr>
+        <tr class="even">
+            <th><label for="armor.duck">闪避</label></th>
+            <td>
+                [h: armor.duck = decode(getProperty("tmp.item.create.equipment.armor.duck"))]
+                <input type="text" name="armor.duck" value="[r: armor.duck]" size="9"></input>
+            </td>
+        </tr>
+    </table>
+
+    <div style="margin:10px 0 0 0; padding:5px; text-align:center; color:#333333; background-color:#D0C0E0;">
+        <input type="submit" name="create" value="&#x3000;&#x3000;&#x3000;&#x3000;&#x521B;&#x5EFA;&#x3000;&#x3000;&#x3000;&#x3000;"></input>
+    </div>
+</form>

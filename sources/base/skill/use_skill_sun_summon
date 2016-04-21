@@ -1,0 +1,237 @@
+[h: id = macro.args]
+[h: used = getProperty("skills.used.sun.summon." + id)]
+
+[h, switch(id), code:
+    case 0:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 1:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 2:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 3:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 4:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 5:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 6:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.4") <= 0 || getProperty("skills.used.sun.summon.5") <= 0): abort(0)]
+    };
+    case 7:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.5") <= 0): abort(0)]
+    };
+    case 8:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.7") <= 0): abort(0)]
+    };
+    case 9:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 10:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.9") <= 0): abort(0)]
+    };
+    case 11:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.9") <= 0): abort(0)]
+    };
+    case 12:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.9") <= 0): abort(0)]
+    };
+    case 13:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.9") <= 0): abort(0)]
+    };
+    case 14:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.9") <= 0): abort(0)]
+    };
+    case 15:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.9") <= 0): abort(0)]
+    };
+    case 16:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.15") <= 0): abort(0)]
+    };
+    case 17:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 18:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.17") <= 0): abort(0)]
+    };
+    case 19:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.17") <= 0): abort(0)]
+    };
+    case 20:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.17") <= 0): abort(0)]
+    };
+    case 21:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.20") <= 0): abort(0)]
+    };
+    case 22:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.17") <= 0): abort(0)]
+    };
+    case 23:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.17") <= 0): abort(0)]
+    };
+    case 24:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.23") <= 0): abort(0)]
+    };
+    case 25:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 26:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.25") <= 0): abort(0)]
+    };
+    case 27:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.25") <= 0): abort(0)]
+    };
+    case 28:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.25") <= 0): abort(0)]
+    };
+    case 29:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.25") <= 0): abort(0)]
+    };
+    case 30:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.29") <= 0): abort(0)]
+    };
+    case 31:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.30") <= 0): abort(0)]
+    };
+    case 32:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 33:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 34:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.33") <= 0): abort(0)]
+    };
+    case 35:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.34") <= 0): abort(0)]
+    };
+    case 36:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.34") <= 0): abort(0)]
+    };
+    case 37:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.34") <= 0): abort(0)]
+    };
+    case 38:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.34") <= 0): abort(0)]
+    };
+    case 39:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.34") <= 0): abort(0)]
+    };
+    case 40:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.34") <= 0): abort(0)]
+    };
+    case 41:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.34") <= 0): abort(0)]
+    };
+    case 42:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.34") <= 0): abort(0)]
+    };
+    case 43:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.33") <= 0): abort(0)]
+    };
+    case 44:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.43") <= 0): abort(0)]
+    };
+    case 45:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon.44") <= 0): abort(0)]
+    };
+    case 46:
+    {
+        [if(used > 0): abort(0)]
+    };
+    default:
+    {
+        [assert(0, "use_skill_sun_summon: unknown skill: " + macro.args)]
+    }
+]
+
+[h: setProperty("skills.used.sun.summon." + id, used + 1)]
+[h: setProperty("skills.used.sun.summon", getProperty("skills.used.sun.summon") + 1)]
+[h: setProperty("skills.used.sun", getProperty("skills.used.sun") + 1)]
+[h: macro.return = 1]

@@ -1,0 +1,12 @@
+[switch(macro.args):
+    case "sky": macro.return = json.fromList("command, embattle, stratagem");
+    case "earth": macro.return = json.fromList("defend, guard, tackle");
+    case "sea": macro.return = json.fromList("energy_missile, energy_shield, energy_master");
+    case "spring": macro.return = json.fromList("heal, heal_attack, life_aura");
+    case "summer": macro.return = json.fromList("weapon_master, dual_wield, dodge");
+    case "autumn": macro.return = json.fromList("stealth, corrode, death");
+    case "winter": macro.return = json.fromList("curse");
+    case "sun": macro.return = json.fromList("doppelganger, summon, summon_master");
+    case "moon": macro.return = json.fromList("shape_shift");
+    case "star": macro.return = json.fromList("twist_fate, project, illusion");
+    default: macro.return = json.fromList("")]

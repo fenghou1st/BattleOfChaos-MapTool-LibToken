@@ -1,0 +1,21 @@
+[switch(macro.args):
+    case 0: macro.return = "&#x547D;&#x7406;&#x5FAA;&#x73AF;";
+    case 1: macro.return = "&#x9709;&#x8FD0; &#x547D;&#x4E2D;";
+    case 2: macro.return = "&#x9709;&#x8FD0; &#x8C41;&#x514D;";
+    case 3: macro.return = "&#x597D;&#x8FD0; &#x547D;&#x4E2D;";
+    case 4: macro.return = "&#x597D;&#x8FD0; &#x8C41;&#x514D;";
+    case 5: macro.return = "&#x585E;&#x7FC1;&#x5931;&#x9A6C;";
+    case 6: macro.return = "&#x91CD;&#x8BD5;";
+    case 7: macro.return = "&#x8BF8;&#x884C;&#x65E0;&#x5E38;";
+    case 8: macro.return = "&#x5DE6;&#x53F3;&#x9022;&#x6E90;";
+    case 9: macro.return = "&#x6094;&#x68CB;";
+    case 10: macro.return = "&#x65E0;&#x803B;&#x6094;&#x68CB;";
+    case 11: macro.return = "&#x6210;&#x7AF9;&#x5728;&#x80F8;";
+    case 12: macro.return = "&#x6599;&#x654C;&#x673A;&#x5148;";
+    case 13: macro.return = "&#x51B7;&#x9759;&#x5E94;&#x5BF9;";
+    case 14: macro.return = "&#x8FFD;&#x8D76;&#x5149;&#x9634;";
+    case 15: macro.return = "&#x65F6;&#x95F4;&#x95EF;&#x5165;";
+    case 16: macro.return = "&#x65F6;&#x95F4;&#x505C;&#x6B62;";
+    case 17: macro.return = "&#x65F6;&#x95F4;&#x9006;&#x8F6C;";
+    case 18: macro.return = "&#x65F6;&#x95F4;&#x5220;&#x9664;";
+    default: macro.return = "&#xFF1F;"]

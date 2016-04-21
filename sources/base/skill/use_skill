@@ -1,0 +1,10 @@
+[h: group = listGet(macro.args, 0, ".")]
+[h: sub_group = listGet(macro.args, 1, ".")]
+[h: id = listGet(macro.args, 2, ".")]
+
+[h: reserved = getProperty("skills.reserved")]
+[h: assert(reserved > 0, "skills.reserved &lt;= 0")]
+
+[h, macro("use_skill_" + group + "_" + sub_group + "@this"): id]
+
+[h, if(macro.return > 0): setProperty("skills.reserved", reserved - 1)]

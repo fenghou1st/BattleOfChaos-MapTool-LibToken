@@ -1,0 +1,6 @@
+[h: group = listGet(macro.args, 0, ".")]
+[h: sub_group = listGet(macro.args, 1, ".")]
+[h: id = listGet(macro.args, 2, ".")]
+
+[h, macro("trans_skill_" + group + "_" + sub_group + "@this"): id]
+[r: macro.return = macro.return]

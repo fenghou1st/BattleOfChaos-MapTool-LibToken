@@ -1,0 +1,353 @@
+[h: trait = getStrProp(macro.args, "trait")]
+[h: data = getStrProp(macro.args, "data")]
+[h: transfered = getStrProp(macro.args, "transfered", 0)]
+
+[h: reserved = getProperty("learned_trait.reserved")]
+[h, if(reserved <= 0), code:
+{
+    [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+    [assert(0, "learned_trait.reserved &lt;= 0")]
+}]
+
+[h, switch(trait), code:
+    case "hp":
+    {
+        [setProperty("learned_trait.used.hp", getProperty("learned_trait.used.hp") + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "duck":
+    {
+        [setProperty("learned_trait.used.duck", getProperty("learned_trait.used.duck") + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "def":
+    {
+        [setProperty("learned_trait.used.def", getProperty("learned_trait.used.def") + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "pow":
+    {
+        [setProperty("learned_trait.used.pow", getProperty("learned_trait.used.pow") + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "aim":
+    {
+        [setProperty("learned_trait.used.aim", getProperty("learned_trait.used.aim") + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "will":
+    {
+        [setProperty("learned_trait.used.will", getProperty("learned_trait.used.will") + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "skill.sober":
+    {
+        [used = getProperty("learned_trait.used.skill.sober")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.skill.sober", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "skill.iron_will":
+    {
+        [used = getProperty("learned_trait.used.skill.iron_will")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.skill.iron_will", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "skill.pranayama":
+    {
+        [used = getProperty("learned_trait.used.skill.pranayama")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.skill.pranayama", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "skill.adaptability":
+    {
+        [used = getProperty("learned_trait.used.skill.adaptability")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.skill.adaptability", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "skill.perceptivity":
+    {
+        [used = getProperty("learned_trait.used.skill.perceptivity")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.skill.perceptivity", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "skill.rapid_healing":
+    {
+        [used = getProperty("learned_trait.used.skill.rapid_healing")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.skill.rapid_healing", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "skill.indomitable_vitality":
+    {
+        [used = getProperty("learned_trait.used.skill.indomitable_vitality")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.skill.indomitable_vitality", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "skill.climber":
+    {
+        [used = getProperty("learned_trait.used.skill.climber")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.skill.climber", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "skill.free_move":
+    {
+        [used = getProperty("learned_trait.used.skill.free_move")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.skill.free_move", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "skill.swift_move":
+    {
+        [used = getProperty("learned_trait.used.skill.swift_move")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.skill.swift_move", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "body_size":
+    {
+        [used = getProperty("learned_trait.used.body_size")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+
+        [selections = '<html><div style="width:50px;text-align:center">-4</div></html>,'
+            + '<html><div style="width:50px;text-align:center">-3</div></html>,'
+            + '<html><div style="width:50px;text-align:center">-2</div></html>,'
+            + '<html><div style="width:50px;text-align:center">-1</div></html>,'
+            + '<html><div style="width:50px;text-align:center">0</div></html>,'
+            + '<html><div style="width:50px;text-align:center">+1</div></html>,'
+            + '<html><div style="width:50px;text-align:center">+2</div></html>,'
+            + '<html><div style="width:50px;text-align:center">+3</div></html>,'
+            + '<html><div style="width:50px;text-align:center">+4</div></html>']
+        [if(data == ""): status = input("data|" + selections + "|<html><b>&#x8BF7;&#x9009;&#x62E9;&#x4F53;&#x578B;</b></html>|RADIO|SELECT=4")]
+
+        [switch(data):
+            case 0: data = -4;
+            case 1: data = -3;
+            case 2: data = -2;
+            case 3: data = -1;
+            case 4: data = 0;
+            case 5: data = 1;
+            case 6: data = 2;
+            case 7: data = 3;
+            case 8: data = 4;
+            default: data = 0]
+
+        [if(status == 0 || data == 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+
+        [body = data]
+        [macro("update_size@this"): body]
+
+        [setProperty("learned_trait.used.body_size", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "mental_type":
+    {
+        [used = getProperty("learned_trait.used.mental_type")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+
+        [selections = '<html><div style="width:50px;text-align:center">&#x8C28;&#x614E;</div></html>,'
+            + '<html><div style="width:50px;text-align:center">&#x666E;&#x901A;</div></html>,'
+            + '<html><div style="width:50px;text-align:center">&#x608D;&#x52C7;</div></html>']
+        [if(data == ""): status = input("data|" + selections + "|<html><b>&#x8BF7;&#x9009;&#x62E9;&#x5FC3;&#x7406;&#x7279;&#x5F81;</b></html>|RADIO|SELECT=1")]
+
+        [switch(data):
+            case 0: data = "cautious";
+            case 1: data = "normal";
+            case 2: data = "brave";
+            default: data = "normal"]
+
+        [if(status == 0 || data == "normal"), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+
+        [setProperty("learned_trait.mental_type", data)]
+
+        [setProperty("learned_trait.used.mental_type", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "resist.slash":
+    {
+        [used = getProperty("learned_trait.used.resist.slash")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.resist.slash", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "resist.pierce":
+    {
+        [used = getProperty("learned_trait.used.resist.pierce")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.resist.pierce", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "resist.blunt":
+    {
+        [used = getProperty("learned_trait.used.resist.blunt")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.resist.blunt", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "resist.fire":
+    {
+        [used = getProperty("learned_trait.used.resist.fire")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.resist.fire", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "resist.cold":
+    {
+        [used = getProperty("learned_trait.used.resist.cold")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.resist.cold", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "resist.lightning":
+    {
+        [used = getProperty("learned_trait.used.resist.lightning")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.resist.lightning", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "resist.force_field":
+    {
+        [used = getProperty("learned_trait.used.resist.force_field")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.resist.force_field", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "resist.light":
+    {
+        [used = getProperty("learned_trait.used.resist.light")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.resist.light", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "resist.dark":
+    {
+        [used = getProperty("learned_trait.used.resist.dark")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.resist.dark", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "resist.corrosion":
+    {
+        [used = getProperty("learned_trait.used.resist.corrosion")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.resist.corrosion", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    case "resist.soul":
+    {
+        [used = getProperty("learned_trait.used.resist.soul")]
+        [if(used > 0), code:
+        {
+            [if(transfered): evalMacro('[macro("undo_trait_transfer@this"): ""]')]
+            [abort(0)]
+        }]
+        [setProperty("learned_trait.used.resist.soul", used + 1)]
+        [setProperty("learned_trait.reserved", reserved - 1)]
+    };
+    default:
+    {
+        [assert(0, "use_learned_trait: unknown trait: " + trait)]
+    }
+]

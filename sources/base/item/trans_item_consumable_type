@@ -1,0 +1,5 @@
+[switch(macro.args):
+    case "potion": macro.return = "&#x836F;&#x5242;";
+    case "scroll": macro.return = "&#x5377;&#x8F74;";
+    case "food": macro.return = "&#x98DF;&#x7269;";
+    default: macro.return = "&#xFF1F;"]

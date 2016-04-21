@@ -1,0 +1,98 @@
+[h: setProperty("tmp.item.create.type", "")]
+[h: setProperty("tmp.item.create.equipment.type", "")]
+[h: setProperty("tmp.item.create.equipment.weapon.tab", "")]
+[h: setProperty("tmp.item.create.consumable.type", "")]
+
+
+[h: setProperty("tmp.item.create.name", "")]
+[h: setProperty("tmp.item.create.desc", "")]
+[h: setProperty("tmp.item.create.weight", "")]
+[h: setProperty("tmp.item.create.value", "")]
+
+
+[h: setProperty("tmp.item.create.equipment.weapon.damage", "3d3")]
+[h: setProperty("tmp.item.create.equipment.weapon.range", 1)]
+[h: setProperty("tmp.item.create.equipment.weapon.is_two_handed", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.need_ammo", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.ammo_type", "")]
+
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.slash", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.pierce", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.blunt", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.fire", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.cold", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.lightning", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.force_field", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.light", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.dark", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.corrosion", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.soul", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.used", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.reserved", 2)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.extra_used", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.extra_reserved", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.history", "{}")]
+
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.slash", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.pierce", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.blunt", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.fire", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.cold", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.lightning", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.force_field", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.light", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.dark", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.corrosion", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.soul", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.used", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.resistance.reserved", 0)]
+
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.0", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.1", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.2", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.3", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.4", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.5", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.6", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.7", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.8", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.9", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.10", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.11", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.12", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.used", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.reserved", 3)]
+
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.0", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.1", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.2", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.3", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.4", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.5", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.6", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.7", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.8", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.used", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.reserved", 2)]
+
+[h: setProperty("tmp.item.create.equipment.weapon.properties.special.0", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.special.1", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.special.2", 0)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.special.3", 0)]
+
+
+[h: setProperty("tmp.item.create.equipment.armor.def", 0)]
+[h: setProperty("tmp.item.create.equipment.armor.duck", 0)]
+
+
+[h: setProperty("tmp.item.create.equipment.ammo.type", "")]
+[h: setProperty("tmp.item.create.equipment.ammo.amount", 1)]
+
+
+[h: setProperty("tmp.item.create.consumable.amount", 1)]
+
+
+[h: setProperty("tmp.item.create.consumable.potion.hp", 0)]
+
+
+[h: setProperty("tmp.item.create.currency.amount", 1)]

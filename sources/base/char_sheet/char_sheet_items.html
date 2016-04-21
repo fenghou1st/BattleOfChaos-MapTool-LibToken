@@ -1,0 +1,67 @@
+[h: items = getProperty("items")]
+
+[h: row_style = "odd"]
+<table class="striped">
+    [r, for(i, 0, json.length(items), 1, ""), code:
+    {
+        [h: item = json.get(items, i)]
+
+        <tr class="{row_style}">
+            <td class="label">
+                <a href="[r: macroLinkText('show_item@this', 'none', "id=" + i)]">
+                    [r: decode(json.get(item, "name"))]
+
+                    [h, macro("item_type_contains@this"): "id=" + i + ";type=equipment"]
+                    [h: is_equipment = macro.return]
+                    [h, if(is_equipment): is_equiped = json.get(json.get(item, "equipment"), "is_equiped"); is_equiped = -1]
+                    [r, if(is_equiped == 1): '<span style="color:#8080FF">[E]</span>']
+                </a>
+            </td>
+            <td>
+                [r, if(is_equiped == 1), code:
+                {
+                    [r: strformat('<a style="color:#A07070" href="%s">[&#x5378;&#x4E0B;]</a>',
+                        macroLinkText("equip_item@this", "none", "id=" + i + ";action=unequip"))]
+                }; {}]
+                [r, if(is_equiped == 0), code:
+                {
+                    [r: strformat('<a style="color:#A07070" href="%s">[&#x88C5;&#x5907;]</a>',
+                        macroLinkText("equip_item@this", "none", "id=" + i + ";action=equip"))]
+                }; {}]
+            </td>
+            <td>
+                [h: amount = ""]
+
+                [h, if(amount == ""), code:
+                {
+                    [h, macro("item_type_contains@this"): "id=" + i + ";type=equipment.ammo"]
+                    [h, if(macro.return): amount = json.get(json.get(item, "equipment.ammo"), "amount")]
+                }]
+
+                [h, if(amount == ""), code:
+                {
+                    [macro("item_type_contains@this"): "id=" + i + ";type=consumable"]
+                    [if(macro.return): amount = json.get(json.get(item, "consumable"), "amount")]
+                }]
+
+                [h, if(amount == ""), code:
+                {
+                    [macro("item_type_contains@this"): "id=" + i + ";type=currency"]
+                    [if(macro.return): amount = json.get(json.get(item, "currency"), "amount")]
+                }]
+
+                [r: amount]
+            </td>
+            <td>
+                [r: strformat('<a style="color:#A07070" href="%s">[&#x4E22;&#x5F03;]</a>',
+                    macroLinkText("remove_item@this", "none", i))]
+            </td>
+        </tr>
+
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+    }]
+</table>
+
+<div style="margin:10px; padding:4px; text-align:center; color:#333333; background-color:#D0C0E0;">
+    <a href="[r: macroLinkText('create_item@this', 'none', '')]">&#x3000;&#x3000;&#x3000;&#x3000;创建物品&#x3000;&#x3000;&#x3000;&#x3000;</a>
+</div>

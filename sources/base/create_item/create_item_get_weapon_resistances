@@ -1,0 +1,10 @@
+[h: enabled_types = "[]"]
+
+[h: damage_types = "slash, pierce, blunt, fire, cold, lightning, force_field, light, dark, corrosion, soul"]
+[h, foreach(damage_type, damage_types, ""), code:
+{
+    [if(getProperty("tmp.item.create.equipment.weapon.resistance." + damage_type) > 0):
+        enabled_types = json.append(enabled_types, damage_type)]
+}]
+
+[h: macro.return = enabled_types]

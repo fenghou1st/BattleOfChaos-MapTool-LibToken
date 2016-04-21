@@ -1,0 +1,104 @@
+[h: property = getStrProp(macro.args, "property")]
+[h: action = getStrProp(macro.args, "action")]
+
+[h: property_level = getProperty("tmp.item.create.equipment.weapon.properties.refined." + property)]
+[h: used = getProperty("tmp.item.create.equipment.weapon.properties.refined.used")]
+[h: reserved = getProperty("tmp.item.create.equipment.weapon.properties.refined.reserved")]
+
+[h, if(action == "+"), code:
+{
+    [property_level = property_level + 1]
+    [used = used + 1]
+    [reserved = reserved - 1]
+    [if(reserved < 0): abort(0)]
+};
+{
+    [property_level = property_level - 1]
+    [used = used - 1]
+    [reserved = reserved + 1]
+    [if(used < 0): abort(0)]
+}]
+
+[h, switch(property), code:
+    case 0:
+    {
+        [if(property_level < 0 || property_level > 1): abort(0)]
+    };
+    case 1:
+    {
+        [if(property_level < 0 || property_level > 1): abort(0)]
+    };
+    case 2:
+    {
+        [if(property_level < 0 || property_level > 1): abort(0)]
+    };
+    case 3:
+    {
+        [if(property_level < 0 || property_level > 1): abort(0)]
+    };
+    case 4:
+    {
+        [if(property_level < 0 || property_level > 1): abort(0)]
+    };
+    case 5:
+    {
+        [if(property_level < 0 || property_level > 1): abort(0)]
+    };
+    case 6:
+    {
+        [if(property_level < 0 || property_level > 1): abort(0)]
+    };
+    case 7:
+    {
+        [if(property_level < 0 || property_level > 1): abort(0)]
+
+        [extra_available = property_level * 2]
+        [extra_used = getProperty("tmp.item.create.equipment.weapon.damage_type.extra_used")]
+        [extra_reserved = getProperty("tmp.item.create.equipment.weapon.damage_type.extra_reserved")]
+        [extra_reserved = extra_available - extra_used]
+        [if(extra_reserved < 0): abort(0)]
+        [setProperty("tmp.item.create.equipment.weapon.damage_type.extra_reserved", extra_reserved)]
+    };
+    case 8:
+    {
+        [if(property_level < 0): abort(0)]
+
+        [resistances_used = getProperty("tmp.item.create.equipment.weapon.resistance.used")]
+        [resistances_reserved = property_level - resistances_used]
+        [if(resistances_reserved < 0): abort(0)]
+        [setProperty("tmp.item.create.equipment.weapon.resistance.reserved", resistances_reserved)]
+    };
+    case 9:
+    {
+        [if(property_level < 0 || property_level > 1): abort(0)]
+    };
+    case 10:
+    {
+        [if(property_level < 0 || property_level > 1): abort(0)]
+    };
+    case 11:
+    {
+        [if(property_level < 0 || property_level > 1): abort(0)]
+    };
+    case 12:
+    {
+        [if(property_level < 0 || property_level > 1): abort(0)]
+    };
+    default:
+    {
+        [assert(0, "create_item_set_weapon_properties_refined: unknown property: " + property)]
+    }
+]
+
+
+[h: crude_used = getProperty("tmp.item.create.equipment.weapon.properties.crude.used")]
+[h: crude_reserved = getProperty("tmp.item.create.equipment.weapon.properties.crude.reserved")]
+[h: crude_reserved = used + 2 - crude_used]
+[h, if(crude_reserved < 0): abort(0)]
+
+
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined." + property, property_level)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.used", used)]
+[h: setProperty("tmp.item.create.equipment.weapon.properties.refined.reserved", reserved)]
+
+[h: setProperty("tmp.item.create.equipment.weapon.properties.crude.reserved", crude_reserved)]

@@ -1,0 +1,36 @@
+[h: id = getStrProp(macro.args, "id")]
+[h, if(id == ""): abort(0)]
+
+[h: type = getStrProp(macro.args, "type")]
+[h, if(type == ""): abort(0)]
+
+[h: tmp_id = getProperty("tmp.item.id")]
+[h, if(tmp_id == id), code:
+{
+    [item = getProperty("tmp.item.obj")]
+};
+{
+    [h: items = getProperty("items")]
+    [h: item = json.get(items, id)]
+    [h: setProperty("tmp.item.id", id)]
+    [h: setProperty("tmp.item.obj", item)]
+}]
+
+[h: item_type = json.get(item, "type")]
+[h, if(item_type == ""): abort(0)]
+
+[h: begin = indexOf(item_type, type)]
+[h, if(begin == 0), code:
+{
+    [h: end = begin + length(type)]
+    [h, if(length(item_type) == end), code:
+    {
+        [macro.return = 1]
+    };
+    {
+        [if(substring(item_type, end, end + 1) == "."): macro.return = 1; macro.return = 0]
+    }]
+};
+{
+    [macro.return = 0]
+}]

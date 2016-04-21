@@ -1,0 +1,58 @@
+[h: page0 = getStrProp(macro.args, "page0")]
+[h: page1 = getStrProp(macro.args, "page1")]
+
+[h, macro("get_skill_sub_groups@this"): page0]
+[h: sub_groups = macro.return]
+
+[h, if(page1 == "" || !json.contains(sub_groups, page1)): page1 = json.get(sub_groups, 0)]
+
+[h: pages = json.fromList("sky, earth, sea, spring, summer, autumn, winter, sun, moon, star")]
+[h: pages_amount = json.length(pages)]
+
+[h: previous_page = ""]
+[h: next_page = ""]
+[h, for(i, 0, pages_amount), code:
+{
+    [if(json.get(pages, i) == page0), code:
+    {
+        [if(i - 1 >= 0): previous_page = json.get(pages, i - 1); previous_page = ""]
+        [if(i + 1 < pages_amount): next_page = json.get(pages, i + 1); next_page = ""]
+    }]
+}]
+
+<table style="width:100%; color:#666666; background-color:#FFFFFF">
+    <tr>
+        <td style="width:33.333333%; text-align:left">
+            [r, if(previous_page != ""):
+                strformat('<a href="%s" style="color:#666666">&#x3000;&lt;&lt;&#x3000;&#x3000;&#x3000;</a>',
+                    macroLinkText("char_sheet@this", "none", "tab=skills;page0=" + previous_page));
+                '<span style="color:#CCCCCC">&#x3000;&lt;&lt;&#x3000;&#x3000;&#x3000;</span>']
+        </td>
+        <td style="width:33.333333%; text-align:center">
+            [h, macro("trans_skill_group@this"): page0]
+            [r: macro.return]
+        </td>
+        <td style="width:33.333333%; text-align:right">
+            [r, if(next_page != ""):
+                strformat('<a href="%s" style="color:#666666">&#x3000;&#x3000;&#x3000;&gt;&gt;&#x3000;</a>',
+                    macroLinkText("char_sheet@this", "none", "tab=skills;page0=" + next_page));
+                '<span style="color:#CCCCCC">&#x3000;&#x3000;&#x3000;&gt;&gt;&#x3000;</span>']
+        </td>
+    </tr>
+</table>
+
+<table class="tabs" style="width:100%; margin-bottom:10px; background-color:#FFFFFF">
+    <tr>
+        [r, foreach(sub_group, sub_groups, ""), code:
+        {
+            [h, macro("trans_skill_sub_group@this"): page0 + "." + sub_group]
+            [h: sub_group_name = macro.return]
+
+            <td [r, if(page1 == sub_group): 'class="current-tab"'] style="background-color:#C0C0E0">
+                [r: macroLink(sub_group_name, "char_sheet@this", "none", "tab=skills;page0=" + page0 + ";page1=" + sub_group)]
+            </td>
+        }]
+    </tr>
+</table>
+
+[macro("char_sheet_skills_list@this"): page0 + "." + page1]

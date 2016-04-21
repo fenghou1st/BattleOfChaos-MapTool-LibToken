@@ -1,0 +1,30 @@
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+/* tabs ***************************************************************************************************************/
+.tabs td {
+    width: 30px;
+    text-align: center;
+    color: #333333;
+    background-color: #D0C0E0;
+}
+
+.tabs .current-tab a {
+    color: #4030EE;
+}
+
+/* striped table ******************************************************************************************************/
+.striped {
+    width: 100%;
+    color: #555555;
+}
+
+.striped .odd {
+    background-color: #FFFFFF;
+}
+
+.striped .even {
+    background-color: #E5E5EE;
+}

@@ -1,0 +1,44 @@
+[h: tab = getStrProp(macro.args, "tab")]
+[h, if(tab == ""): tab = getProperty("tmp.ui.curr_tab")]
+[h, if(tab == ""): tab = "status"]
+[h: setProperty("tmp.ui.curr_tab", tab)]
+
+[h: page0 = getStrProp(macro.args, "page0")]
+[h, if(page0 == ""): page0 = getProperty("tmp.ui.curr_page0")]
+[h: setProperty("tmp.ui.curr_page0", page0)]
+
+[h: page1 = getStrProp(macro.args, "page1")]
+[h, if(page1 == ""): page1 = getProperty("tmp.ui.curr_page1")]
+[h: setProperty("tmp.ui.curr_page1", page1)]
+
+
+[h: data = getStrProp(macro.args, "data")]
+
+[h: trait = getStrProp(macro.args, "use_inherited_trait")]
+[h, if(trait != ""): evalMacro('[macro("use_inherited_trait@this"): "trait=" + trait + ";data=" + data]')]
+
+[h: trait = getStrProp(macro.args, "use_learned_trait")]
+[h, if(trait != ""): evalMacro('[macro("use_learned_trait@this"): "trait=" + trait + ";data=" + data]')]
+
+[h: choose_ap_system = getStrProp(macro.args, "choose_ap_system")]
+[h, if(choose_ap_system != ""): evalMacro('[macro("choose_ap_system@this"): ""]')]
+
+[h: skill = getStrProp(macro.args, "use_skill")]
+[h, if(skill != ""): evalMacro('[macro("use_skill@this"): skill]')]
+
+[macro("update_trait@this"): ""]
+
+
+[frame("CharSheet"): {
+<html>
+    <head>
+          <link rel="stylesheet" type="text/css" href="char_sheet.css@[r: getMacroLocation()]">
+          <title>Character Sheet</title>
+    </head>
+    <body>
+        [macro("char_sheet_main@this"): ""]
+        [macro("char_sheet_header@this"): tab]
+        [macro("char_sheet_" + tab + "@this"): "page0=" + page0 + ";page1=" + page1]
+    </body>
+</html>
+}]

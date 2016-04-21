@@ -1,0 +1,12 @@
+[switch(macro.args):
+    case "sky": macro.return = "&#x5929;";
+    case "earth": macro.return = "&#x5730;";
+    case "sea": macro.return = "&#x6D77;";
+    case "spring": macro.return = "&#x6625;";
+    case "summer": macro.return = "&#x590F;";
+    case "autumn": macro.return = "&#x79CB;";
+    case "winter": macro.return = "&#x51AC;";
+    case "sun": macro.return = "&#x65E5;";
+    case "moon": macro.return = "&#x6708;";
+    case "star": macro.return = "&#x661F;";
+    default: macro.return = "&#xFF1F;"]

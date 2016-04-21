@@ -1,0 +1,17 @@
+[h: groups = "sky, earth, sea, spring, summer, autumn, winter, sun, moon, star"]
+[h: row_style = "odd"]
+
+<table class="striped">
+    [r, foreach(group, groups, ""), code:
+    {
+        <tr class="{row_style}">
+            <td class="label">
+                [h, macro("trans_skill_group@this"): group]
+                [r: strformat('<a href="%s">' + macro.return + '&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;</a>',
+                    macroLinkText("char_sheet@this", "none", "tab=skills;page0=" + group))]
+            </td>
+            <td>[r: getProperty("skills.used." + group)]</td>
+        </tr>
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+    }]
+</table>

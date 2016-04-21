@@ -1,0 +1,246 @@
+<table class="striped">
+    <tr class="odd">
+        <td class="label">HP</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=hp"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=hp"))]
+        </td>
+        <td>[r: getProperty("inherited_trait.used.hp")] + [r: getProperty("learned_trait.used.hp")]</td>
+        <td>{MaxHP}</td>
+    </tr>
+    <tr class="even">
+        <td class="label">闪避</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=duck"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=duck"))]
+        </td>
+        <td>[r: getProperty("inherited_trait.used.duck")] + [r: getProperty("learned_trait.used.duck")]</td>
+        <td>{10 + duck + tduck}</td>
+    </tr>
+    <tr class="odd">
+        <td class="label">护甲</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=def"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=def"))]
+        </td>
+        <td>[r: getProperty("inherited_trait.used.def")] + [r: getProperty("learned_trait.used.def")]</td>
+        <td>{def + tdef}</td>
+    </tr>
+    <tr class="even">
+        <td class="label">威力</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=pow"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=pow"))]
+        </td>
+        <td>[r: getProperty("inherited_trait.used.pow")] + [r: getProperty("learned_trait.used.pow")]</td>
+        <td>{pow + tpow}</td>
+    </tr>
+    <tr class="odd">
+        <td class="label">命中</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=aim"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=aim"))]
+        </td>
+        <td>[r: getProperty("inherited_trait.used.aim")] + [r: getProperty("learned_trait.used.aim")]</td>
+        <td>1d20 + {aim + taim}</td>
+    </tr>
+    <tr class="even">
+        <td class="label">射程</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=will"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=will"))]
+        </td>
+        <td>[r: getProperty("inherited_trait.used.will")] + [r: getProperty("learned_trait.used.will")]</td>
+        <td>{will}</td>
+    </tr>
+</table>
+
+<table class="striped" style="margin-top: 10px; color: #999999">
+    <tr style="color: #555555; background-color: #D0C0E0;">
+        <th colspan=2>特质</th>
+    </tr>
+    <tr class="odd">
+        <td class="label" [r, if (getProperty("learned_trait.used.skill.sober") > 0): 'style="color: #555555; font-weight: bold"']>清醒</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=skill.sober"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=skill.sober"))]
+        </td>
+    </tr>
+    <tr class="even">
+        <td class="label" [r, if (getProperty("learned_trait.used.skill.iron_will") > 0): 'style="color: #555555; font-weight: bold"']>钢铁意志</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=skill.iron_will"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=skill.iron_will"))]
+        </td>
+    </tr>
+    <tr class="odd">
+        <td class="label" [r, if (getProperty("learned_trait.used.skill.pranayama") > 0): 'style="color: #555555; font-weight: bold"']>调息</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=skill.pranayama"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=skill.pranayama"))]
+        </td>
+    </tr>
+    <tr class="even">
+        <td class="label" [r, if (getProperty("learned_trait.used.skill.adaptability") > 0): 'style="color: #555555; font-weight: bold"']>战斗适应</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=skill.adaptability"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=skill.adaptability"))]
+        </td>
+    </tr>
+    <tr class="odd">
+        <td class="label" [r, if (getProperty("learned_trait.used.skill.perceptivity") > 0): 'style="color: #555555; font-weight: bold"']>感知力</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=skill.perceptivity"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=skill.perceptivity"))]
+        </td>
+    </tr>
+    <tr class="even">
+        <td class="label" [r, if (getProperty("learned_trait.used.skill.rapid_healing") > 0): 'style="color: #555555; font-weight: bold"']>快速愈合</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=skill.rapid_healing"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=skill.rapid_healing"))]
+        </td>
+    </tr>
+    <tr class="odd">
+        <td class="label" [r, if (getProperty("learned_trait.used.skill.indomitable_vitality") > 0): 'style="color: #555555; font-weight: bold"']>顽强生命</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=skill.indomitable_vitality"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=skill.indomitable_vitality"))]
+        </td>
+    </tr>
+    <tr class="even">
+        <td class="label" [r, if (getProperty("learned_trait.used.skill.climber") > 0): 'style="color: #555555; font-weight: bold"']>攀爬者</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=skill.climber"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=skill.climber"))]
+        </td>
+    </tr>
+    <tr class="odd">
+        <td class="label" [r, if (getProperty("learned_trait.used.skill.free_move") > 0): 'style="color: #555555; font-weight: bold"']>穿行者</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=skill.free_move"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=skill.free_move"))]
+        </td>
+    </tr>
+    <tr class="even">
+        <td class="label" [r, if (getProperty("learned_trait.used.skill.swift_move") > 0): 'style="color: #555555; font-weight: bold"']>疾行者</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=skill.swift_move"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(+)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=skill.swift_move"))]
+        </td>
+    </tr>
+</table>
+
+<table class="striped" style="margin-top: 10px">
+    <tr style="background-color: #D0C0E0;">
+        <th colspan=3>其他</th>
+    </tr>
+    <tr class="odd">
+        <td class="label">AP系统</td>
+        <td>
+            [r, if(getProperty("learned_trait.ap_system") == ""):
+                strformat('<a style="color:#A07000" href="%s">[&#x8BF7;&#x9009;&#x62E9;]</a>',
+                macroLinkText("char_sheet@this", "none", "choose_ap_system=1"))]
+        </td>
+        <td>
+            [h, macro("trans_ap_system@this"): getProperty("status.ap_system")]
+            [r: macro.return]
+        </td>
+    </tr>
+    <tr class="even">
+        <td class="label">速度</td>
+        <td></td>
+        <td>{speed}</td>
+    </tr>
+    <tr class="odd">
+        <td class="label">体型</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[&#x8BF7;&#x9009;&#x62E9;]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=body_size"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(&#x8BF7;&#x9009;&#x62E9;)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=body_size"))]
+        </td>
+        <td>{body}</td>
+    </tr>
+    <tr class="even">
+        <td class="label">心理特征</td>
+        <td>
+            [r, if(getProperty("inherited_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">[&#x8BF7;&#x9009;&#x62E9;]</a>',
+                macroLinkText("char_sheet@this", "none", "use_inherited_trait=mental_type"))]
+            [r, if(getProperty("learned_trait.reserved") > 0):
+                strformat('<a style="color:#A07000" href="%s">(&#x8BF7;&#x9009;&#x62E9;)</a>',
+                macroLinkText("char_sheet@this", "none", "use_learned_trait=mental_type"))]
+        </td>
+        <td>
+            [h, macro("trans_mental_type@this"): getProperty("status.mental_type")]
+            [r: macro.return]
+        </td>
+    </tr>
+</table>

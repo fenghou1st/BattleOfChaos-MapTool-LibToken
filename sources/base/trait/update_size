@@ -1,0 +1,11 @@
+[switch(macro.args):
+    case -4: setSize("Fine");
+    case -3: setSize("Diminutive");
+    case -2: setSize("Tiny");
+    case -1: setSize("Small");
+    case 0: setSize("Medium");
+    case 1: setSize("Large");
+    case 2: setSize("Huge");
+    case 3: setSize("Gargantuan");
+    case 4: setSize("Colossal");
+    default: setSize("Medium")]

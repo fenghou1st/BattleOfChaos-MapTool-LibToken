@@ -1,0 +1,70 @@
+[h: id = getStrProp(macro.args, "id")]
+[h: tab = getStrProp(macro.args, "tab")]
+
+[h: items = getProperty("items")]
+[h: item = json.get(items, id)]
+
+<table class="striped">
+    [h: row_style = "odd"]
+    <tr class="{row_style}">
+        <th style="width:30%"><label>名称</label></th>
+        <td>
+            [r: decode(json.get(item, "name"))]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>描述</label></th>
+        <td>
+            [r: decode(json.get(item, "desc"))]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>重量(kg)</label></th>
+        <td>
+            [r: decode(json.get(item, "weight"))]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>价值(G)</label></th>
+        <td>
+            [r: decode(json.get(item, "value"))]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    [h: equipment = json.get(item, "equipment")]
+    <tr class="{row_style}">
+        <th><label>已装备</label></th>
+        <td>
+            [h: is_equiped = json.get(equipment, "is_equiped")]
+            [h, macro("trans_bool@this"): is_equiped]
+            [r: macro.return]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    [h: armor = json.get(item, "equipment.armor")]
+    <tr class="{row_style}">
+        <th><label>护甲</label></th>
+        <td>
+            [h: armor_def = json.get(armor, "def")]
+            [r, if(armor_def > 0): "+" + armor_def; armor_def]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>闪避</label></th>
+        <td>
+            [h: armor_duck = json.get(armor, "duck")]
+            [r, if(armor_duck > 0): "+" + armor_duck; armor_duck]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+</table>

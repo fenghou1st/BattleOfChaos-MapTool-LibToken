@@ -1,0 +1,47 @@
+[h: inherited_trait.reserved = getProperty("inherited_trait.reserved")]
+[h: learned_trait.reserved = getProperty("learned_trait.reserved")]
+[h: skills.reserved = getProperty("skills.reserved")]
+
+<table class="main" style="width: 100%">
+    <tr>
+        <td class="avatar" style="width: 100px">
+            <img src="[r: getTokenImage(100)]"></img>
+        </td>
+        <td>
+            <table class="striped">
+                <tr class="odd">
+                    <td class="label">姓名</td>
+                    <td>{getName()}</td>
+                </tr>
+                <tr class="even">
+                    <td class="label">等级</td>
+                    <td>{level}</td>
+                </tr>
+                <tr class="odd">
+                    <td class="label">HP</td>
+                    <td>{HP} / {MaxHP} + {TempHP}</td>
+                </tr>
+                <tr class="even">
+                    <td class="label">AP</td>
+                    <td>{AP} / {MaxAP}</td>
+                </tr>
+                <tr class="odd">
+                    <td class="label">负重</td>
+                    <td>{carry} / {MaxCarry}</td>
+                </tr>
+                [r, if(inherited_trait.reserved > 0 || learned_trait.reserved > 0), code: {
+                    <tr class="even" style="color:#A07000">
+                        <td class="label">素质点</td>
+                        <td>{inherited_trait.reserved} + {learned_trait.reserved}</td>
+                    </tr>
+                }; {}]
+                [r, if(skills.reserved > 0), code: {
+                    <tr [r, if(inherited_trait.reserved > 0 || learned_trait.reserved > 0), code: {class="odd"}; {class="even"}] style="color:#A07000">
+                        <td class="label">专长点</td>
+                        <td>{skills.reserved}</td>
+                    </tr>
+                }; {}]
+            </table>
+        </td>
+    </tr>
+</table>

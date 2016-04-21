@@ -1,0 +1,30 @@
+[h: setProperty("tmp.item.create.equipment.weapon.tab", "resistances")]
+
+[h: damage_types = "slash, pierce, blunt, fire, cold, lightning, force_field, light, dark, corrosion, soul"]
+
+[h: row_style = "odd"]
+<table class="striped" style="color:#999999; margin-top:10px">
+    <tr style="color:#555555">
+        <th colspan=3>抗性 ([r: getProperty("tmp.item.create.equipment.weapon.resistance.reserved")])</th>
+    </tr>
+    [r, foreach(damage_type, damage_types, ""), code:
+    {
+        <tr class="{row_style}">
+            <td class="label" [r, if (getProperty("tmp.item.create.equipment.weapon.resistance." + damage_type) > 0): 'style="color:#555555; font-weight:bold"']>
+                [h, macro("trans_damage_type@this"): damage_type]
+                [r: macro.return]
+            </td>
+            <td>
+                [r, if(getProperty("tmp.item.create.equipment.weapon.resistance.reserved") > 0):
+                    strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                    macroLinkText("create_item@this", "none", "set_weapon_resistance=" + damage_type + ";data=+"))]
+            </td>
+            <td>
+                [r, if(getProperty("tmp.item.create.equipment.weapon.resistance." + damage_type) > 0):
+                    strformat('<a style="color:#707070" href="%s">[-]</a>',
+                    macroLinkText("create_item@this", "none", "set_weapon_resistance=" + damage_type + ";data=-"))]
+            </td>
+        </tr>
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+    }]
+</table>

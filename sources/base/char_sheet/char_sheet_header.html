@@ -1,0 +1,19 @@
+[h: tab = macro.args]
+[h: callback = "char_sheet@" + getMacroLocation()]
+
+<table class="tabs" style="width: 100%; margin-bottom: 10px">
+    <tr>
+        <td class="[r, if (tab == 'status'): 'current-tab']">
+            [r: macroLink("&#x7D20;&#x8D28;", callback, "none", "tab=status")]
+        </td>
+        <td class="[r, if (tab == 'skills'): 'current-tab']">
+            [r: macroLink("&#x4E13;&#x957F;", callback, "none", "tab=skills;page0=main")]
+        </td>
+        <td class="[r, if (tab == 'damage_types'): 'current-tab']">
+            [r: macroLink("&#x6297;&#x6027;", callback, "none", "tab=damage_types")]
+        </td>
+        <td class="[r, if (tab == 'items'): 'current-tab']">
+            [r: macroLink("&#x7269;&#x54C1;", callback, "none", "tab=items")]
+        </td>
+    </tr>
+</table>

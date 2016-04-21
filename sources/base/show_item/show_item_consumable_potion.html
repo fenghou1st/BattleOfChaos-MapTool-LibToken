@@ -1,0 +1,59 @@
+[h: id = getStrProp(macro.args, "id")]
+[h: tab = getStrProp(macro.args, "tab")]
+
+[h: items = getProperty("items")]
+[h: item = json.get(items, id)]
+
+<table class="striped">
+    [h: row_style = "odd"]
+    <tr class="{row_style}">
+        <th style="width:30%"><label>名称</label></th>
+        <td>
+            [r: decode(json.get(item, "name"))]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>描述</label></th>
+        <td>
+            [r: decode(json.get(item, "desc"))]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>重量(kg/单位)</label></th>
+        <td>
+            [r: decode(json.get(item, "weight"))]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    <tr class="{row_style}">
+        <th><label>价值(G/单位)</label></th>
+        <td>
+            [r: decode(json.get(item, "value"))]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    [h: consumable = json.get(item, "consumable")]
+    <tr class="{row_style}">
+        <th><label>数量</label></th>
+        <td>
+            [r: json.get(consumable, "amount")]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+    [h: potion = json.get(item, "consumable.potion")]
+    <tr class="{row_style}">
+        <th><label>HP</label></th>
+        <td>
+            [h: potion_hp = json.get(potion, "hp")]
+            [r, if(potion_hp > 0): "+" + potion_hp; potion_hp]
+        </td>
+    </tr>
+    [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+</table>

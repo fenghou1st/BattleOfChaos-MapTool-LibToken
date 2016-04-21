@@ -1,0 +1,92 @@
+[h: trait = getStrProp(macro.args, "trait")]
+[h: data = getStrProp(macro.args, "data")]
+
+[h: reserved = getProperty("inherited_trait.reserved")]
+[h: assert(reserved > 0, "inherited_trait.reserved &lt;= 0")]
+
+[h, switch(trait), code:
+    case "hp":
+    {
+        [used = getProperty("inherited_trait.used.hp")]
+        [if(used >= 5): abort(0)]
+        [if(used >= 4), code:
+        {
+            [assert(reserved > 1, "inherited_trait.reserved &lt;= 1")]
+            [reserved = reserved - 1]
+            [setProperty("inherited_trait.dropped", getProperty("inherited_trait.dropped") + 1)]
+        }]
+        [setProperty("inherited_trait.used.hp", used + 1)]
+        [setProperty("inherited_trait.reserved", reserved - 1)]
+    };
+    case "duck":
+    {
+        [used = getProperty("inherited_trait.used.duck")]
+        [if(used >= 5): abort(0)]
+        [if(used >= 4), code:
+        {
+            [assert(reserved > 1, "inherited_trait.reserved &lt;= 1")]
+            [reserved = reserved - 1]
+            [setProperty("inherited_trait.dropped", getProperty("inherited_trait.dropped") + 1)]
+        }]
+        [setProperty("inherited_trait.used.duck", used + 1)]
+        [setProperty("inherited_trait.reserved", reserved - 1)]
+    };
+    case "def":
+    {
+        [used = getProperty("inherited_trait.used.def")]
+        [if(used >= 5): abort(0)]
+        [if(used >= 4), code:
+        {
+            [assert(reserved > 1, "inherited_trait.reserved &lt;= 1")]
+            [reserved = reserved - 1]
+            [setProperty("inherited_trait.dropped", getProperty("inherited_trait.dropped") + 1)]
+        }]
+        [setProperty("inherited_trait.used.def", used + 1)]
+        [setProperty("inherited_trait.reserved", reserved - 1)]
+    };
+    case "pow":
+    {
+        [used = getProperty("inherited_trait.used.pow")]
+        [if(used >= 5): abort(0)]
+        [if(used >= 4), code:
+        {
+            [assert(reserved > 1, "inherited_trait.reserved &lt;= 1")]
+            [reserved = reserved - 1]
+            [setProperty("inherited_trait.dropped", getProperty("inherited_trait.dropped") + 1)]
+        }]
+        [setProperty("inherited_trait.used.pow", used + 1)]
+        [setProperty("inherited_trait.reserved", reserved - 1)]
+    };
+    case "aim":
+    {
+        [used = getProperty("inherited_trait.used.aim")]
+        [if(used >= 5): abort(0)]
+        [if(used >= 4), code:
+        {
+            [assert(reserved > 1, "inherited_trait.reserved &lt;= 1")]
+            [reserved = reserved - 1]
+            [setProperty("inherited_trait.dropped", getProperty("inherited_trait.dropped") + 1)]
+        }]
+        [setProperty("inherited_trait.used.aim", used + 1)]
+        [setProperty("inherited_trait.reserved", reserved - 1)]
+    };
+    case "will":
+    {
+        [used = getProperty("inherited_trait.used.will")]
+        [if(used >= 5): abort(0)]
+        [if(used >= 4), code:
+        {
+            [assert(reserved > 1, "inherited_trait.reserved &lt;= 1")]
+            [reserved = reserved - 1]
+            [setProperty("inherited_trait.dropped", getProperty("inherited_trait.dropped") + 1)]
+        }]
+        [setProperty("inherited_trait.used.will", used + 1)]
+        [setProperty("inherited_trait.reserved", reserved - 1)]
+    };
+    default:
+    {
+        [setProperty("inherited_trait.reserved", reserved - 1)]
+        [setProperty("learned_trait.reserved", getProperty("learned_trait.reserved") + 1)]
+        [macro("use_learned_trait@this"): "trait=" + trait + "; data=" + data + "; transfered=1"]
+    }
+]

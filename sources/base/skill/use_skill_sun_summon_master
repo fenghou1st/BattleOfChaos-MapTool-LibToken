@@ -1,0 +1,48 @@
+[h: id = macro.args]
+[h: used = getProperty("skills.used.sun.summon_master." + id)]
+
+[h, switch(id), code:
+    case 0:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 1:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 2:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 3:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 4:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon_master.3") <= 0): abort(0)]
+    };
+    case 5:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 6:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sun.summon_master.5") <= 0): abort(0)]
+    };
+    case 7:
+    {
+        [if(used > 0): abort(0)]
+    };
+    default:
+    {
+        [assert(0, "use_skill_sun_summon_master: unknown skill: " + macro.args)]
+    }
+]
+
+[h: setProperty("skills.used.sun.summon_master." + id, used + 1)]
+[h: setProperty("skills.used.sun.summon_master", getProperty("skills.used.sun.summon_master") + 1)]
+[h: setProperty("skills.used.sun", getProperty("skills.used.sun") + 1)]
+[h: macro.return = 1]

@@ -1,0 +1,174 @@
+[h: id = macro.args]
+[h: used = getProperty("skills.used.sea.energy_master." + id)]
+
+[h, switch(id), code:
+    case 0:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 1:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.0") <= 0): abort(0)]
+    };
+    case 2:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.1") <= 0): abort(0)]
+    };
+    case 3:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.2") <= 0): abort(0)]
+    };
+    case 4:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 5:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.4") <= 0): abort(0)]
+    };
+    case 6:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.4") <= 0): abort(0)]
+    };
+    case 7:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.6") <= 0): abort(0)]
+    };
+    case 8:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 9:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.8") <= 0): abort(0)]
+    };
+    case 10:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.8") <= 0): abort(0)]
+    };
+    case 11:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 12:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 13:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.11") <= 0 || getProperty("skills.used.sea.energy_master.12") <= 0): abort(0)]
+    };
+    case 14:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.13") <= 0): abort(0)]
+    };
+    case 15:
+    {
+        [total = getProperty("skills.used.sea.energy_master")]
+        [available = floor((total - used) / 2)]
+        [if(available <= used): abort(0)]
+
+        [macro("choose_damage_type_master@this"): ""]
+        [setProperty("learned_trait.used.master." + macro.return, 1)]
+    };
+    case 16:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 17:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.16") <= 0): abort(0)]
+    };
+    case 18:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 19:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.18") <= 0): abort(0)]
+    };
+    case 20:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 21:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.20") <= 0): abort(0)]
+    };
+    case 22:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 23:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.22") <= 0): abort(0)]
+    };
+    case 24:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 25:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.24") <= 0): abort(0)]
+    };
+    case 26:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 27:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.26") <= 0): abort(0)]
+    };
+    case 28:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 29:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.28") <= 0): abort(0)]
+    };
+    case 30:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 31:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.30") <= 0): abort(0)]
+    };
+    case 32:
+    {
+        [if(used > 0): abort(0)]
+    };
+    case 33:
+    {
+        [if(used > 0): abort(0)]
+        [if(getProperty("skills.used.sea.energy_master.32") <= 0): abort(0)]
+    };
+    default:
+    {
+        [assert(0, "use_skill_sea_energy_master: unknown skill: " + macro.args)]
+    }
+]
+
+[h: setProperty("skills.used.sea.energy_master." + id, used + 1)]
+[h: setProperty("skills.used.sea.energy_master", getProperty("skills.used.sea.energy_master") + 1)]
+[h: setProperty("skills.used.sea", getProperty("skills.used.sea") + 1)]
+[h: macro.return = 1]

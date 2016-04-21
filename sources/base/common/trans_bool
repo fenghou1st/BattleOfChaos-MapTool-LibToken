@@ -1,0 +1,4 @@
+[switch(macro.args):
+    case 0: macro.return = "&#x2715;";
+    case "": macro.return = "";
+    default: macro.return = "&#x2713;"]

@@ -1,0 +1,5 @@
+[switch(macro.args):
+    case "cautious": macro.return = "&#x8C28;&#x614E;";
+    case "normal": macro.return = "&#x666E;&#x901A;";
+    case "brave": macro.return = "&#x608D;&#x52C7;";
+    default: macro.return = "&#x666E;&#x901A;"]

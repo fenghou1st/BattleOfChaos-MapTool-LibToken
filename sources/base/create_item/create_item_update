@@ -1,0 +1,50 @@
+
+<!-- 暂时只考虑创建武器的情况 -->
+[h: damage_times = 3]
+[h: damage_base = 3]
+[h: range = 1]
+
+
+[h, if(getProperty("tmp.item.create.equipment.weapon.properties.special.1") > 0), code:
+{
+    [setProperty("tmp.item.create.equipment.weapon.is_two_handed", 1)]
+    [damage_base = 4]
+};
+{
+    [setProperty("tmp.item.create.equipment.weapon.is_two_handed", 0)]
+    [damage_base = 3]
+}]
+
+[h, if(getProperty("tmp.item.create.equipment.weapon.properties.special.3") > 0), code:
+{
+    [range = -1]
+    [setProperty("tmp.item.create.equipment.weapon.need_ammo", 1)]
+};
+{
+    [range = 1]
+    [setProperty("tmp.item.create.equipment.weapon.need_ammo", 0)]
+    [setProperty("tmp.item.create.equipment.weapon.ammo_type", "")]
+}]
+
+
+[h, if(getProperty("tmp.item.create.equipment.weapon.properties.refined.12") > 0), code:
+{
+    [range = range + 1]
+}]
+
+[h: damage_times = damage_times - getProperty("tmp.item.create.equipment.weapon.properties.refined.used")]
+
+
+[h, if(getProperty("tmp.item.create.equipment.weapon.properties.crude.7") > 0), code:
+{
+    [range = range - 2]
+}]
+
+[h: damage_times = damage_times + getProperty("tmp.item.create.equipment.weapon.properties.crude.used")]
+
+
+[h, if(damage_times < 0): abort(0)]
+[h, if(range < 1): range = 1]
+
+[h: setProperty("tmp.item.create.equipment.weapon.damage", damage_times + "d" + damage_base)]
+[h: setProperty("tmp.item.create.equipment.weapon.range", range)]

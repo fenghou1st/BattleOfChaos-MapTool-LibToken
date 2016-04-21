@@ -1,0 +1,31 @@
+[h: setProperty("tmp.item.create.name", encode(getStrProp(macro.args, "name")))]
+[h: setProperty("tmp.item.create.desc", encode(getStrProp(macro.args, "desc")))]
+[h: setProperty("tmp.item.create.weight", encode(getStrProp(macro.args, "weight")))]
+[h: setProperty("tmp.item.create.value", encode(getStrProp(macro.args, "value")))]
+[h: setProperty("tmp.item.create.equipment.weapon.ammo_type", encode(getStrProp(macro.args, "ammo_type")))]
+
+
+[h: save = getStrProp(macro.args, "save")]
+[h, if(save != ""), code :
+{
+    [macro("create_item@this"): "type=equipment;equipment.type=weapon;weapon.tab=basic"]
+    [abort(0)]
+}]
+
+
+[h: create = getStrProp(macro.args, "create")]
+[h, if(create != ""), code :
+{
+    [macro("create_item_get_weapon_object@this"): ""]
+    [item = macro.return]
+
+    [items = getProperty("items")]
+    [items = json.append(items, item)]
+    [setProperty("items", items)]
+
+    [macro("char_sheet@this"): ""]
+
+    [id = json.length(items) - 1]
+    [macro("show_item@this"): "id=" + id]
+    [abort(0)]
+}]

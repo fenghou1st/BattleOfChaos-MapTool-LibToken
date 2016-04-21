@@ -1,0 +1,6 @@
+[switch(macro.args):
+    case "equipment": macro.return = "&#x88C5;&#x5907;";
+    case "consumable": macro.return = "&#x6D88;&#x8017;&#x54C1;";
+    case "currency": macro.return = "&#x8D27;&#x5E01;";
+    case "normal": macro.return = "&#x4E00;&#x822C;";
+    default: macro.return = "&#xFF1F;"]

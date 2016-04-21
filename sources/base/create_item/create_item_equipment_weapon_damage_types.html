@@ -1,0 +1,34 @@
+[h: setProperty("tmp.item.create.equipment.weapon.tab", "damage_types")]
+
+[h: damage_types = "slash, pierce, blunt, fire, cold, lightning, force_field, light, dark, corrosion, soul"]
+[h: reserved = getProperty("tmp.item.create.equipment.weapon.damage_type.reserved")]
+[h: extra_reserved = getProperty("tmp.item.create.equipment.weapon.damage_type.extra_reserved")]
+
+[h: row_style = "odd"]
+<table class="striped" style="color:#999999; margin-top:10px">
+    <tr style="color:#555555">
+        <th colspan=3>
+            伤害类型 ([r: reserved] + [r: extra_reserved])
+        </th>
+    </tr>
+    [r, foreach(damage_type, damage_types, ""), code:
+    {
+        <tr class="{row_style}">
+            <td class="label" [r, if (getProperty("tmp.item.create.equipment.weapon.damage_type." + damage_type) > 0): 'style="color:#555555; font-weight:bold"']>
+                [h, macro("trans_damage_type@this"): damage_type]
+                [r: macro.return]
+            </td>
+            <td>
+                [r, if(reserved > 0 || extra_reserved > 0):
+                    strformat('<a style="color:#A07000" href="%s">[+]</a>',
+                    macroLinkText("create_item@this", "none", "set_weapon_damage_type=" + damage_type + ";data=+"))]
+            </td>
+            <td>
+                [r, if(getProperty("tmp.item.create.equipment.weapon.damage_type." + damage_type) > 0):
+                    strformat('<a style="color:#707070" href="%s">[-]</a>',
+                    macroLinkText("create_item@this", "none", "set_weapon_damage_type=" + damage_type + ";data=-"))]
+            </td>
+        </tr>
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+    }]
+</table>

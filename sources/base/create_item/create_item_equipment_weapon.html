@@ -1,0 +1,22 @@
+[h: setProperty("tmp.item.create.equipment.type", "weapon")]
+
+[h: weapon.tab = getStrProp(macro.args, "weapon.tab")]
+[h, if(weapon.tab == ""): weapon.tab = getProperty("tmp.item.create.equipment.weapon.tab")]
+[h, if(weapon.tab == ""): weapon.tab = "basic"]
+[h: setProperty("tmp.item.create.equipment.weapon.tab", weapon.tab)]
+
+[h: weapon_tabs = '["basic", "damage_types", "special_properties", "refined_properties", "crude_properties", "resistances"]']
+
+<table class="tabs" style="width:100%; margin-bottom:10px">
+    <tr>
+        [r, foreach(weapon_tab, weapon_tabs, ""), code:
+        {
+            <td class="[r, if (weapon.tab == weapon_tab): 'current-tab']">
+                [h, macro("trans_item_equipment_weapon_tab@this"): weapon_tab]
+                [r: macroLink(macro.return, "create_item@this", "none", "type=equipment;equipment.type=weapon;weapon.tab=" + weapon_tab)]
+            </td>
+        }]
+    </tr>
+</table>
+
+[r, if(weapon.tab != ""): evalMacro('[macro("create_item_equipment_weapon_" + weapon.tab + "@this"): macro.args]')]

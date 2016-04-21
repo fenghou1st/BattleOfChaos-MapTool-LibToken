@@ -1,0 +1,6 @@
+[switch(macro.args):
+    case "weapon": macro.return = "&#x6B66;&#x5668;";
+    case "armor": macro.return = "&#x9632;&#x5177;";
+    case "accessory": macro.return = "&#x9644;&#x4EF6;";
+    case "ammo": macro.return = "&#x5F39;&#x836F;";
+    default: macro.return = "&#xFF1F;"]

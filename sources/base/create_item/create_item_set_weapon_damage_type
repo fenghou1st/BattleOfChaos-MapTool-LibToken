@@ -1,0 +1,84 @@
+[h: type = getStrProp(macro.args, "type")]
+[h: action = getStrProp(macro.args, "action")]
+
+
+[h: enabled = getProperty("tmp.item.create.equipment.weapon.damage_type." + type)]
+[h, if(action == "+"), code:
+{
+    [if(enabled > 0): abort(0)]
+};
+{
+    [if(enabled == 0): abort(0)]
+}]
+
+
+[h: consumed = ""]
+[h, switch(type):
+    case "slash":       consumed = 1;
+    case "pierce":      consumed = 1;
+    case "blunt":       consumed = 1;
+    case "fire":        consumed = 2;
+    case "cold":        consumed = 2;
+    case "lightning":   consumed = 2;
+    case "force_field": consumed = 2;
+    case "light":       consumed = 2;
+    case "dark":        consumed = 2;
+    case "corrosion":   consumed = 2;
+    case "soul":        consumed = 2;
+    default: assert(0, "create_item_set_weapon_damage_type: unknown damage type: " + type)
+]
+
+
+[h: used = getProperty("tmp.item.create.equipment.weapon.damage_type.used")]
+[h: reserved = getProperty("tmp.item.create.equipment.weapon.damage_type.reserved")]
+[h: extra_used = getProperty("tmp.item.create.equipment.weapon.damage_type.extra_used")]
+[h: extra_reserved = getProperty("tmp.item.create.equipment.weapon.damage_type.extra_reserved")]
+[h: history = getProperty("tmp.item.create.equipment.weapon.damage_type.history")]
+[h: consumed_type = ""]
+
+[h, if(action == "+"), code:
+{
+    [enabled = 1]
+    [consumed_type = "basic"]
+    [used = used + consumed]
+    [reserved = reserved - consumed]
+
+    [if(reserved < 0), code:
+    {
+        [used = used - consumed]
+        [reserved = reserved + consumed]
+
+        [consumed_type = "extra"]
+        [extra_used = extra_used + 1]
+        [extra_reserved = extra_reserved - 1]
+        [if(extra_reserved < 0): abort(0)]
+    }]
+
+    [history = json.set(history, type, consumed_type)]
+};
+{
+    [enabled = 0]
+    [consumed_type = json.get(history, type)]
+    [history = json.remove(history, type)]
+    [if(consumed_type == ""): abort(0)]
+
+    [if(consumed_type == "basic"), code:
+    {
+        [used = used - consumed]
+        [reserved = reserved + consumed]
+        [if(used < 0): abort(0)]
+    };
+    {
+        [extra_used = extra_used - 1]
+        [extra_reserved = extra_reserved + 1]
+        [if(extra_used < 0): abort(0)]
+    }]
+}]
+
+
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type." + type, enabled)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.used", used)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.reserved", reserved)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.extra_used", extra_used)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.extra_reserved", extra_reserved)]
+[h: setProperty("tmp.item.create.equipment.weapon.damage_type.history", history)]

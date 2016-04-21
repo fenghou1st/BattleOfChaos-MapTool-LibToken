@@ -1,0 +1,34 @@
+[h, macro("create_item_get_weapon_damage_types@this"): ""]
+[h: damage_types = macro.return]
+
+[h, macro("create_item_get_weapon_resistances@this"): ""]
+[h: resistances = macro.return]
+
+[h, macro("create_item_get_weapon_properties@this"): ""]
+[h: properties = macro.return]
+
+
+[h: equipment = json.set("{}", "is_equiped", 0)]
+
+[h: equipment_weapon = json.set("{}",
+    "damage", getProperty("tmp.item.create.equipment.weapon.damage"),
+    "range", getProperty("tmp.item.create.equipment.weapon.range"),
+    "damage_types", damage_types,
+    "is_two_handed", getProperty("tmp.item.create.equipment.weapon.is_two_handed"),
+    "need_ammo", getProperty("tmp.item.create.equipment.weapon.need_ammo"),
+    "ammo_type", getProperty("tmp.item.create.equipment.weapon.ammo_type"),
+    "properties", properties,
+    "resistances", resistances
+)]
+
+[h: item = json.set("{}",
+    "type", "equipment.weapon",
+    "name", getProperty("tmp.item.create.name"),
+    "desc", getProperty("tmp.item.create.desc"),
+    "weight", getProperty("tmp.item.create.weight"),
+    "value", getProperty("tmp.item.create.value"),
+    "equipment", equipment,
+    "equipment.weapon", equipment_weapon
+)]
+
+[h: macro.return = item]

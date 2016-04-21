@@ -1,0 +1,34 @@
+[h: setProperty("tmp.item.create.name", encode(getStrProp(macro.args, "name")))]
+[h: setProperty("tmp.item.create.desc", encode(getStrProp(macro.args, "desc")))]
+[h: setProperty("tmp.item.create.weight", encode(getStrProp(macro.args, "weight")))]
+[h: setProperty("tmp.item.create.value", encode(getStrProp(macro.args, "value")))]
+[h: setProperty("tmp.item.create.equipment.armor.def", encode(getStrProp(macro.args, "armor.def")))]
+[h: setProperty("tmp.item.create.equipment.armor.duck", encode(getStrProp(macro.args, "armor.duck")))]
+
+
+[h: equipment = json.set("{}", "is_equiped", 0)]
+
+[h: equipment_armor = json.set("{}",
+    "def", getProperty("tmp.item.create.equipment.armor.def"),
+    "duck", getProperty("tmp.item.create.equipment.armor.duck")
+)]
+
+[h: item = json.set("{}",
+    "type", "equipment.armor",
+    "name", getProperty("tmp.item.create.name"),
+    "desc", getProperty("tmp.item.create.desc"),
+    "weight", getProperty("tmp.item.create.weight"),
+    "value", getProperty("tmp.item.create.value"),
+    "equipment", equipment,
+    "equipment.armor", equipment_armor
+)]
+
+
+[h: items = getProperty("items")]
+[h: items = json.append(items, item)]
+[h: setProperty("items", items)]
+
+[h, macro("char_sheet@this"): ""]
+
+[h: id = json.length(items) - 1]
+[h, macro("show_item@this"): "id=" + id]
