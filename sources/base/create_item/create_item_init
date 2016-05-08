@@ -10,6 +10,7 @@
 [h: setProperty("tmp.item.create.value", "")]
 
 
+[h: setProperty("tmp.item.create.equipment.weapon.size", 0)]
 [h: setProperty("tmp.item.create.equipment.weapon.damage", "3d3")]
 [h: setProperty("tmp.item.create.equipment.weapon.range", 1)]
 [h: setProperty("tmp.item.create.equipment.weapon.is_two_handed", 0)]
@@ -81,6 +82,7 @@
 [h: setProperty("tmp.item.create.equipment.weapon.properties.special.3", 0)]
 
 
+[h: setProperty("tmp.item.create.equipment.armor.size", 0)]
 [h: setProperty("tmp.item.create.equipment.armor.def", 0)]
 [h: setProperty("tmp.item.create.equipment.armor.duck", 0)]
 

@@ -5,23 +5,43 @@
 [h: range = 1]
 
 
+
+
+[h: weapon_size = getProperty("tmp.item.create.equipment.weapon.size")]
+[h, if(weapon_size >= 0), code:
+{
+    [damage_times = damage_times + weapon_size]
+    [range = range + weapon_size]
+};
+{
+    [damage_times = damage_times + weapon_size]
+
+    <!-- 精致属性+1 -->
+    [used = getProperty("tmp.item.create.equipment.weapon.properties.refined.used")]
+    [reserved = getProperty("tmp.item.create.equipment.weapon.properties.refined.reserved")]
+
+}]
+
+
+
+
+[h: damage_times = damage_times + getProperty("tmp.item.create.equipment.weapon.size")]
+
 [h, if(getProperty("tmp.item.create.equipment.weapon.properties.special.1") > 0), code:
 {
     [setProperty("tmp.item.create.equipment.weapon.is_two_handed", 1)]
-    [damage_base = 4]
+    [damage_base = damage_base + 1]
 };
 {
     [setProperty("tmp.item.create.equipment.weapon.is_two_handed", 0)]
-    [damage_base = 3]
 }]
 
 [h, if(getProperty("tmp.item.create.equipment.weapon.properties.special.3") > 0), code:
 {
-    [range = -1]
+    [range = ""]
     [setProperty("tmp.item.create.equipment.weapon.need_ammo", 1)]
 };
 {
-    [range = 1]
     [setProperty("tmp.item.create.equipment.weapon.need_ammo", 0)]
     [setProperty("tmp.item.create.equipment.weapon.ammo_type", "")]
 }]
@@ -44,7 +64,7 @@
 
 
 [h, if(damage_times < 0): abort(0)]
-[h, if(range < 1): range = 1]
+[h, if(range != "" && range < 1): range = 1]
 
 [h: setProperty("tmp.item.create.equipment.weapon.damage", damage_times + "d" + damage_base)]
 [h: setProperty("tmp.item.create.equipment.weapon.range", range)]

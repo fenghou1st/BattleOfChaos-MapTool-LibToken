@@ -62,7 +62,7 @@
         <th><label>攻击范围</label></th>
         <td>
             [h: weapon_range = json.get(weapon, "range")]
-            [r, if(weapon_range == -1): "&#x89D2;&#x8272;&#x5C04;&#x7A0B;"; weapon_range]
+            [r, if(weapon_range == ""): "&#x89D2;&#x8272;&#x5C04;&#x7A0B;"; weapon_range]
         </td>
     </tr>
     [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]

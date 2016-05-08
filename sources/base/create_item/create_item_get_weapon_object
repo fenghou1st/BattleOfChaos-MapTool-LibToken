@@ -11,6 +11,7 @@
 [h: equipment = json.set("{}", "is_equiped", 0)]
 
 [h: equipment_weapon = json.set("{}",
+    "size", getProperty("tmp.item.create.equipment.weapon.size"),
     "damage", getProperty("tmp.item.create.equipment.weapon.damage"),
     "range", getProperty("tmp.item.create.equipment.weapon.range"),
     "damage_types", damage_types,

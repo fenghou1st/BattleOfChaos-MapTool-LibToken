@@ -2,6 +2,7 @@
 [h: setProperty("tmp.item.create.desc", encode(getStrProp(macro.args, "desc")))]
 [h: setProperty("tmp.item.create.weight", encode(getStrProp(macro.args, "weight")))]
 [h: setProperty("tmp.item.create.value", encode(getStrProp(macro.args, "value")))]
+[h: setProperty("tmp.item.create.equipment.weapon.size", getStrProp(macro.args, "size"))]
 [h: setProperty("tmp.item.create.equipment.weapon.ammo_type", encode(getStrProp(macro.args, "ammo_type")))]
 
 

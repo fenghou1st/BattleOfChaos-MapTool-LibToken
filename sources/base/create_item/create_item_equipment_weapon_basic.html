@@ -2,48 +2,79 @@
 
 <form name="item.equipment.weapon.input" action="[r:macroLinkText('create_item_equipment_weapon_submit@this')]">
     <table class="striped">
-        <tr class="odd">
+        [h: row_style = "odd"]
+        <tr class="{row_style}">
             <th><label for="name">名称</label></th>
             <td>
                 [h: name = decode(getProperty("tmp.item.create.name"))]
                 <input type="text" name="name" value="[r: name]" size="30"></input>
             </td>
         </tr>
-        <tr class="even">
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+        <tr class="{row_style}">
             <th><label for="desc">描述</label></th>
             <td>
                 <textarea name="desc" rows="5" cols="30">[r: desc = decode(getProperty("tmp.item.create.desc"))]</textarea>
             </td>
         </tr>
-        <tr class="odd">
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+        <tr class="{row_style}">
             <th><label for="weight">重量(kg)</label></th>
             <td>
                 [h: weight = decode(getProperty("tmp.item.create.weight"))]
                 <input type="text" name="weight" value="[r: weight]" size="9"></input>
             </td>
         </tr>
-        <tr class="even">
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+        <tr class="{row_style}">
             <th><label for="value">价值(G)</label></th>
             <td>
                 [h: value = decode(getProperty("tmp.item.create.value"))]
                 <input type="text" name="value" value="[r: value]" size="9"></input>
             </td>
         </tr>
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
 
-        <tr class="odd">
+        <tr class="{row_style}">
+            <th><label for="size">适用体型</label></th>
+            <td>
+                [h: weapon_size = getProperty("tmp.item.create.equipment.weapon.size")]
+                <select name="size">
+                    <option value=-4 [r, if(weapon_size == -4): selected="selected"]>-4</option>
+                    <option value=-3 [r, if(weapon_size == -3): selected="selected"]>-3</option>
+                    <option value=-2 [r, if(weapon_size == -2): selected="selected"]>-2</option>
+                    <option value=-1 [r, if(weapon_size == -1): selected="selected"]>-1</option>
+                    <option value=0 [r, if(weapon_size == 0): selected="selected"]>0</option>
+                    <option value=1 [r, if(weapon_size == 1): selected="selected"]>+1</option>
+                    <option value=2 [r, if(weapon_size == 2): selected="selected"]>+2</option>
+                    <option value=3 [r, if(weapon_size == 3): selected="selected"]>+3</option>
+                    <option value=4 [r, if(weapon_size == 4): selected="selected"]>+4</option>
+                </select>
+            </td>
+        </tr>
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+        <tr class="{row_style}">
             <th><label for="damage">伤害骰</label></th>
             <td>
                 [r: getProperty("tmp.item.create.equipment.weapon.damage")]
             </td>
         </tr>
-        <tr class="even">
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+        <tr class="{row_style}">
             <th><label for="range">攻击范围</label></th>
             <td>
                 [h: range = getProperty("tmp.item.create.equipment.weapon.range")]
-                [r, if(range == -1): "&#x89D2;&#x8272;&#x5C04;&#x7A0B;"; range]
+                [r, if(range == ""): "&#x89D2;&#x8272;&#x5C04;&#x7A0B;"; range]
             </td>
         </tr>
-        <tr class="odd">
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+        <tr class="{row_style}">
             <th><label for="is_two_handed">双手武器</label></th>
             <td>
                 [h: is_two_handed = getProperty("tmp.item.create.equipment.weapon.is_two_handed")]
@@ -51,7 +82,9 @@
                 [r: macro.return]
             </td>
         </tr>
-        <tr class="even">
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
+        <tr class="{row_style}">
             <th><label for="need_ammo">需要弹药</label></th>
             <td>
                 [h: need_ammo = getProperty("tmp.item.create.equipment.weapon.need_ammo")]
@@ -59,15 +92,18 @@
                 [r: macro.return]
             </td>
         </tr>
+        [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
+
         [r, if(need_ammo), code:
         {
-            <tr class="odd">
+            <tr class="{row_style}">
                 <th><label for="ammo_type">弹药类型</label></th>
                 <td>
                     [h: ammo_type = decode(getProperty("tmp.item.create.equipment.weapon.ammo_type"))]
                     <input type="text" name="ammo_type" value="[r: ammo_type]" size="30"></input>
                 </td>
             </tr>
+            [h, if(row_style == "odd"): row_style = "even"; row_style = "odd"]
         }; {}]
     </table>
 
