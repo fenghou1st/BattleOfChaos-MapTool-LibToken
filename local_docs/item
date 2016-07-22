@@ -1,0 +1,51 @@
+item: type, name, desc, weight, value
+
+type: equipment | consumable | currency | normal
+
+equipment.type: weapon | armor | accessory | ammo
+consumable.type: potion | scroll | food
+
+equipment: is_equiped
+consumable: amount
+currency: amount
+
+equipment.weapon: size, damage, range, damage_types, is_two_handed, need_ammo, ammo_type, properties
+equipment.weapon.properties.type: refined | crude | special
+
+equipment.armor: size, def, duck
+
+equipment.ammo: amount, type
+------------
+
+    weapon.properties.refined
+0   锋锐
+1   精确
+2   格挡
+3   护身
+4   加速
+5   增能
+6   保佑
+7   多用
+8   遮蔽
+9   凶残
+10  破魔
+11  免费
+12  触及
+
+    weapon.properties.crude
+0   失准
+1   反噬
+2   无遮
+3   破绽
+4   笨重
+5   弱能
+6   厄运
+7   短险
+8   死角
+
+    weapon.properties.special
+0   轻灵
+1   双手
+2   投射
+3   远程
+------------
